@@ -1,0 +1,177 @@
+{
+  "release_status": "draft",
+  "manifest": {
+    "errors": [],
+    "warnings": [],
+    "info": [
+      {
+        "type": "manifest_values",
+        "source_commit": "registry-v1.2.1-draft",
+        "public_release_ready": "false"
+      }
+    ]
+  },
+  "source": {
+    "errors": [],
+    "warnings": [
+      {
+        "type": "public_release_currently_blocked_by_manual_placeholders",
+        "examples": [
+          {
+            "row": 2,
+            "variable_id": "coumarin_fluor.lateral_roots.{stat}",
+            "fields": [
+              "trait_ontology_id",
+              "quality_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "trait_characteristic_accession",
+              "method_accession",
+              "scale_accession"
+            ]
+          },
+          {
+            "row": 3,
+            "variable_id": "coumarin_fluor.lateral_roots.pixel_count.px",
+            "fields": [
+              "trait_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "method_accession"
+            ]
+          },
+          {
+            "row": 4,
+            "variable_id": "coumarin_fluor.main_root.{stat}",
+            "fields": [
+              "trait_ontology_id",
+              "quality_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "trait_characteristic_accession",
+              "method_accession",
+              "scale_accession"
+            ]
+          },
+          {
+            "row": 5,
+            "variable_id": "coumarin_fluor.main_root.pixel_count.px",
+            "fields": [
+              "trait_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "method_accession"
+            ]
+          },
+          {
+            "row": 6,
+            "variable_id": "coumarin_fluor.rhizoplane.{stat}",
+            "fields": [
+              "trait_ontology_id",
+              "entity_ontology_id",
+              "quality_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "trait_entity_accession",
+              "trait_characteristic_accession",
+              "method_accession",
+              "scale_accession"
+            ]
+          },
+          {
+            "row": 7,
+            "variable_id": "coumarin_fluor.rhizoplane.pixel_count.px",
+            "fields": [
+              "trait_ontology_id",
+              "entity_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "trait_entity_accession",
+              "method_accession"
+            ]
+          },
+          {
+            "row": 8,
+            "variable_id": "coumarin_fluor.shoot.{stat}",
+            "fields": [
+              "trait_ontology_id",
+              "quality_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "trait_characteristic_accession",
+              "method_accession",
+              "scale_accession"
+            ]
+          },
+          {
+            "row": 9,
+            "variable_id": "coumarin_fluor.shoot.pixel_count.px",
+            "fields": [
+              "trait_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "method_accession"
+            ]
+          },
+          {
+            "row": 10,
+            "variable_id": "fluor.mCherry.branch_nodes.{stat}",
+            "fields": [
+              "trait_ontology_id",
+              "quality_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "trait_characteristic_accession",
+              "method_accession",
+              "scale_accession"
+            ]
+          },
+          {
+            "row": 11,
+            "variable_id": "fluor.mCherry.branch_nodes.pixel_count.px",
+            "fields": [
+              "trait_ontology_id",
+              "roi_class_accession",
+              "trait_accession",
+              "method_accession"
+            ]
+          }
+        ]
+      }
+    ],
+    "info": [
+      {
+        "type": "row_counts",
+        "source_rows": 44,
+        "template_rows": 12,
+        "concrete_rows_in_source": 32,
+        "public_source_rows": 36
+      },
+      {
+        "type": "public_manual_blockers_preview",
+        "count": 36
+      }
+    ]
+  },
+  "concrete": {
+    "errors": [],
+    "warnings": [],
+    "info": [
+      {
+        "type": "row_counts",
+        "concrete_rows": 99,
+        "public_rows": 48
+      }
+    ]
+  },
+  "public_release": {
+    "errors": [],
+    "warnings": [],
+    "info": [
+      {
+        "type": "public_validation_mode",
+        "status": "preview_only"
+      }
+    ]
+  }
+}

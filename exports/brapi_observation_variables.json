@@ -1,0 +1,1692 @@
+{
+  "metadata": {
+    "registry_version": "1.2.1",
+    "export_schema_version": "1.1.0",
+    "release_status": "draft",
+    "artifact": "brapi_observation_variables.json"
+  },
+  "result": {
+    "data": [
+      {
+        "observationVariableDbId": "coumarin_fluor.lateral_roots.mean",
+        "observationVariableName": "Coumarin-associated fluorescence in lateral roots (mean)",
+        "trait": {
+          "traitName": "lateral root(s) metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "lateral root(s)",
+          "entityDbId": "PO:0020121",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:LATERAL_ROOTS_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.lateral_roots.pixel_count.px",
+        "observationVariableName": "ROI pixel count (lateral roots) for coumarin fluorescence",
+        "trait": {
+          "traitName": "lateral root(s) ROI pixel count",
+          "traitDbId": null,
+          "entity": "lateral root(s)",
+          "entityDbId": "PO:0020121",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_LATERAL_ROOTS_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.lateral_roots.sum",
+        "observationVariableName": "Coumarin-associated fluorescence in lateral roots (sum)",
+        "trait": {
+          "traitName": "lateral root(s) metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "lateral root(s)",
+          "entityDbId": "PO:0020121",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:LATERAL_ROOTS_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.main_root.mean",
+        "observationVariableName": "Coumarin-associated fluorescence in primary root (mean)",
+        "trait": {
+          "traitName": "primary root metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:MAIN_ROOT_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.main_root.pixel_count.px",
+        "observationVariableName": "ROI pixel count (main root) for coumarin fluorescence",
+        "trait": {
+          "traitName": "primary root ROI pixel count",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_MAIN_ROOT_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.main_root.sum",
+        "observationVariableName": "Coumarin-associated fluorescence in primary root (sum)",
+        "trait": {
+          "traitName": "primary root metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:MAIN_ROOT_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.rhizoplane.mean",
+        "observationVariableName": "Coumarin-associated fluorescence in peri-root region (mean)",
+        "trait": {
+          "traitName": "peri-root region metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:RHIZOPLANE_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.rhizoplane.pixel_count.px",
+        "observationVariableName": "ROI pixel count (rhizoplane) for coumarin fluorescence",
+        "trait": {
+          "traitName": "peri-root region ROI pixel count",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_RHIZOPLANE_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.rhizoplane.sum",
+        "observationVariableName": "Coumarin-associated fluorescence in peri-root region (sum)",
+        "trait": {
+          "traitName": "peri-root region metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:RHIZOPLANE_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.shoot.mean",
+        "observationVariableName": "Coumarin-associated fluorescence in shoot (mean)",
+        "trait": {
+          "traitName": "shoot system metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "shoot system",
+          "entityDbId": "PO:0009006",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:SHOOT_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.shoot.pixel_count.px",
+        "observationVariableName": "ROI pixel count (shoot) for coumarin fluorescence",
+        "trait": {
+          "traitName": "shoot system ROI pixel count",
+          "traitDbId": null,
+          "entity": "shoot system",
+          "entityDbId": "PO:0009006",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_SHOOT_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "coumarin_fluor.shoot.sum",
+        "observationVariableName": "Coumarin-associated fluorescence in shoot (sum)",
+        "trait": {
+          "traitName": "shoot system metabolite-associated fluorescence signal",
+          "traitDbId": null,
+          "entity": "shoot system",
+          "entityDbId": "PO:0009006",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "coumarin_regional_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:COUMARIN_FLUOR:SHOOT_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mCherry.branch_nodes.mean",
+        "observationVariableName": "mCherry fluorescence in primary-root branch-node ROI (mean)",
+        "trait": {
+          "traitName": "primary root microbial fluorescence signal (branch-node ROI)",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MCHERRY_BRANCH_NODES_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mCherry.branch_nodes.pixel_count.px",
+        "observationVariableName": "ROI pixel count (branch nodes) for mCherry fluorescence",
+        "trait": {
+          "traitName": "primary root branch-node ROI pixel count",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:FLUOR:MCHERRY_BRANCH_NODES_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "fluor.mCherry.branch_nodes.sum",
+        "observationVariableName": "mCherry fluorescence in primary-root branch-node ROI (sum)",
+        "trait": {
+          "traitName": "primary root microbial fluorescence signal (branch-node ROI)",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MCHERRY_BRANCH_NODES_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mCherry.main_root.mean",
+        "observationVariableName": "mCherry fluorescence along primary root (mean)",
+        "trait": {
+          "traitName": "primary root microbial fluorescence signal",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MCHERRY_MAIN_ROOT_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mCherry.main_root.pixel_count.px",
+        "observationVariableName": "ROI pixel count (main root) for mCherry fluorescence",
+        "trait": {
+          "traitName": "primary root ROI pixel count",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:FLUOR:MCHERRY_MAIN_ROOT_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "fluor.mCherry.main_root.sum",
+        "observationVariableName": "mCherry fluorescence along primary root (sum)",
+        "trait": {
+          "traitName": "primary root microbial fluorescence signal",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MCHERRY_MAIN_ROOT_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mTurquoise2.branch_nodes.mean",
+        "observationVariableName": "mTurquoise2 fluorescence in primary-root branch-node ROI (mean)",
+        "trait": {
+          "traitName": "primary root reporter fluorescence signal (branch-node ROI)",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MTURQUOISE2_BRANCH_NODES_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mTurquoise2.branch_nodes.pixel_count.px",
+        "observationVariableName": "ROI pixel count (branch nodes) for mTurquoise2 fluorescence",
+        "trait": {
+          "traitName": "primary root branch-node ROI pixel count",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:FLUOR:MTURQUOISE2_BRANCH_NODES_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "fluor.mTurquoise2.branch_nodes.sum",
+        "observationVariableName": "mTurquoise2 fluorescence in primary-root branch-node ROI (sum)",
+        "trait": {
+          "traitName": "primary root reporter fluorescence signal (branch-node ROI)",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MTURQUOISE2_BRANCH_NODES_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mTurquoise2.main_root.mean",
+        "observationVariableName": "mTurquoise2 fluorescence along primary root (mean)",
+        "trait": {
+          "traitName": "primary root reporter fluorescence signal",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MTURQUOISE2_MAIN_ROOT_MEAN",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "fluor.mTurquoise2.main_root.pixel_count.px",
+        "observationVariableName": "ROI pixel count (main root) for mTurquoise2 fluorescence",
+        "trait": {
+          "traitName": "primary root ROI pixel count",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel; ROI pixel enumeration",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:FLUOR:MTURQUOISE2_MAIN_ROOT_PIXELS",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "fluor.mTurquoise2.main_root.sum",
+        "observationVariableName": "mTurquoise2 fluorescence along primary root (sum)",
+        "trait": {
+          "traitName": "primary root reporter fluorescence signal",
+          "traitDbId": null,
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "fluorescence signal",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "fluorescence",
+          "dual_channel_roi"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:FLUOR:MTURQUOISE2_MAIN_ROOT_SUM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "root.branch_node.count",
+        "observationVariableName": "Root branch node count",
+        "trait": {
+          "traitName": "root branch node count",
+          "traitDbId": null,
+          "entity": "root system",
+          "entityDbId": "PO:0009005",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "root_architecture",
+          "rootcam_segmentation"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "count",
+        "systemId": "HADES:ROOTCAM:BRANCH_NODE_COUNT",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "root.lateral.count",
+        "observationVariableName": "Lateral root count",
+        "trait": {
+          "traitName": "lateral root count",
+          "traitDbId": "TO:0001013",
+          "entity": "lateral root(s)",
+          "entityDbId": "PO:0020121",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "root_architecture",
+          "rootcam_segmentation"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "count",
+        "systemId": "HADES:ROOTCAM:LATERAL_ROOT_COUNT",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "root.lateral.total_length.px",
+        "observationVariableName": "Total lateral root length (px)",
+        "trait": {
+          "traitName": "lateral root total length",
+          "traitDbId": "TO:0001012",
+          "entity": "lateral root(s)",
+          "entityDbId": "PO:0020121",
+          "attribute": "length",
+          "attributeDbId": "PATO:0000122"
+        },
+        "method": {
+          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "root_architecture",
+          "rootcam_segmentation"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:ROOTCAM:TOTAL_LATERAL_ROOT_LENGTH_PX",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "root.primary.length.px",
+        "observationVariableName": "Primary (main) root length (px)",
+        "trait": {
+          "traitName": "primary root length",
+          "traitDbId": "TO:0000227",
+          "entity": "primary root",
+          "entityDbId": "PO:0020127",
+          "attribute": "length",
+          "attributeDbId": "PATO:0000122"
+        },
+        "method": {
+          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "root_architecture",
+          "rootcam_segmentation"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:ROOTCAM:PRIMARY_ROOT_LENGTH_PX",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "root.tip.count",
+        "observationVariableName": "Root tip count",
+        "trait": {
+          "traitName": "root tip count",
+          "traitDbId": null,
+          "entity": "root tip(s)",
+          "entityDbId": "PO:0000025",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "root_architecture",
+          "rootcam_segmentation"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "count",
+        "systemId": "HADES:ROOTCAM:ROOT_TIP_COUNT",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "screen.outlier_flag",
+        "observationVariableName": "Outlier flag (per trait; >95th percentile)",
+        "trait": {
+          "traitName": "outlier flag",
+          "traitDbId": null,
+          "entity": "plant",
+          "entityDbId": "PO:0000003",
+          "attribute": "outlier status",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "Screening summary computation; binary indicator for >95th percentile within day-by-trait distribution",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "unitless",
+          "scaleDbId": "UO:0000186",
+          "dataType": "bool",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day_trait",
+          "screening",
+          "summary"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "unitless",
+        "systemId": "HADES:SCREEN:OUTLIER_FLAG_GT95PCT",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "seed.ellipse_fit_sse",
+        "observationVariableName": "Seed ellipse-fit SSE (unitless)",
+        "trait": {
+          "traitName": "seed ellipse-fit error",
+          "traitDbId": "TO:0000484",
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "shape / fit error",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "unitless",
+          "scaleDbId": "UO:0000186",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "unitless",
+        "systemId": "PSI:BOXEED:SEED_ELLIPSE_FIT_SSE",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "seed.fluorescence_intensity.percent",
+        "observationVariableName": "Seed fluorescence intensity (%)",
+        "trait": {
+          "traitName": "seed fluorescence intensity",
+          "traitDbId": null,
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "%",
+          "scaleDbId": "UO:0000187",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "%",
+        "systemId": "PSI:BOXEED:SEED_FLUORESCENCE_INTENSITY_PCT",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "seed.length.mm",
+        "observationVariableName": "Seed length (mm)",
+        "trait": {
+          "traitName": "seed length",
+          "traitDbId": "TO:0000146",
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "length",
+          "attributeDbId": "PATO:0000122"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "mm",
+          "scaleDbId": "UO:0000016",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "mm",
+        "systemId": "PSI:BOXEED:SEED_LENGTH_MM",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "seed.length_area_ratio",
+        "observationVariableName": "Seed L/S ratio (length/area)",
+        "trait": {
+          "traitName": "seed length-to-area ratio",
+          "traitDbId": "TO:0000484",
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "shape (elongation proxy)",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "ratio",
+          "scaleDbId": "UO:0000190",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "unitless",
+        "systemId": "PSI:BOXEED:SEED_LENGTH_AREA_RATIO",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "seed.major_axis_angle.deg",
+        "observationVariableName": "Seed axes angle (deg)",
+        "trait": {
+          "traitName": "seed axes angle",
+          "traitDbId": null,
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "orientation angle",
+          "attributeDbId": "PATO:0000133"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "deg",
+          "scaleDbId": "UO:0000185",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "deg",
+        "systemId": "PSI:BOXEED:SEED_MAJOR_AXIS_ANGLE_DEG",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "seed.pixel_count.px",
+        "observationVariableName": "Seed pixel count (px)",
+        "trait": {
+          "traitName": "seed pixel count",
+          "traitDbId": null,
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "count",
+          "attributeDbId": "PATO:0000070"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "count",
+          "scaleDbId": "UO:0000189",
+          "dataType": "int",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "PSI:BOXEED:SEED_PIXEL_COUNT",
+        "variableRole": "analysis_derived"
+      },
+      {
+        "observationVariableDbId": "seed.projected_area.px_per_mm2",
+        "observationVariableName": "Seed area (px/mm2)",
+        "trait": {
+          "traitName": "seed area",
+          "traitDbId": "TO:0000391",
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "area",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "px/mm2",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px/mm2",
+        "systemId": "PSI:BOXEED:SEED_PROJECTED_AREA_PX_PER_MM2",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "seed.roundness",
+        "observationVariableName": "Seed roundness (unitless)",
+        "trait": {
+          "traitName": "seed roundness",
+          "traitDbId": "TO:0000484",
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "shape (roundness)",
+          "attributeDbId": "PATO:0000052"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "unitless",
+          "scaleDbId": "UO:0000186",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "unitless",
+        "systemId": "PSI:BOXEED:SEED_ROUNDNESS",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "seed.width.mm",
+        "observationVariableName": "Seed width (mm)",
+        "trait": {
+          "traitName": "seed width",
+          "traitDbId": "TO:0000149",
+          "entity": "seed",
+          "entityDbId": "PO:0009010",
+          "attribute": "width",
+          "attributeDbId": "PATO:0000921"
+        },
+        "method": {
+          "methodName": "Boxeed imaging-based seed phenotyping",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "mm",
+          "scaleDbId": "UO:0000016",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "seed",
+          "seed_morphometrics",
+          "boxeed"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "mm",
+        "systemId": "PSI:BOXEED:SEED_WIDTH_MM",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "shoot.area.px",
+        "observationVariableName": "Shoot segmented area (px)",
+        "trait": {
+          "traitName": "shoot area",
+          "traitDbId": null,
+          "entity": "shoot system",
+          "entityDbId": "PO:0009006",
+          "attribute": "area",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "scaleDbId": null,
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_day",
+          "shoot_growth",
+          "image_segmentation"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "px",
+        "systemId": "HADES:SHOOT:AREA_PX",
+        "variableRole": "primary_trait"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_peak_wavelength.rhizoplane_425_600.nm",
+        "observationVariableName": "Peak emission wavelength in rhizoplane region (425-600 nm)",
+        "trait": {
+          "traitName": "peri-root region fluorescence emission peak wavelength",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "wavelength",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "nm",
+          "scaleDbId": "UO:0000018",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "nm",
+        "systemId": "HADES:VNIR:EMISSION_PEAK_WAVELENGTH_RHIZOPLANE_425_600_NM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_peak_wavelength.root_425_600.nm",
+        "observationVariableName": "Peak emission wavelength in root region (425-600 nm)",
+        "trait": {
+          "traitName": "root system fluorescence emission peak wavelength",
+          "traitDbId": null,
+          "entity": "root system",
+          "entityDbId": "PO:0009005",
+          "attribute": "wavelength",
+          "attributeDbId": null
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "nm",
+          "scaleDbId": "UO:0000018",
+          "dataType": "float",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "nm",
+        "systemId": "HADES:VNIR:EMISSION_PEAK_WAVELENGTH_ROOT_425_600_NM",
+        "variableRole": "observed_variable"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_spectrum.rhizoplane_425_600.mean",
+        "observationVariableName": "VNIR emission spectrum in peri-root region, 425-600 nm (mean)",
+        "trait": {
+          "traitName": "peri-root region fluorescence emission spectrum",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "array<float>",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:VNIR:EMISSION_SPECTRUM_RHIZOPLANE_425_600_MEAN",
+        "variableRole": "matrix_trait"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_spectrum.rhizoplane_425_600.std",
+        "observationVariableName": "VNIR emission spectrum in peri-root region, 425-600 nm (standard deviation)",
+        "trait": {
+          "traitName": "peri-root region fluorescence emission spectrum",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "array<float>",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:VNIR:EMISSION_SPECTRUM_RHIZOPLANE_425_600_STD",
+        "variableRole": "matrix_trait"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_spectrum.rhizoplane_425_600.sum",
+        "observationVariableName": "VNIR emission spectrum in peri-root region, 425-600 nm (sum)",
+        "trait": {
+          "traitName": "peri-root region fluorescence emission spectrum",
+          "traitDbId": null,
+          "entity": "peri-root region (agar-adjacent ROI)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "array<float>",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:VNIR:EMISSION_SPECTRUM_RHIZOPLANE_425_600_SUM",
+        "variableRole": "matrix_trait"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_spectrum.root_425_600.mean",
+        "observationVariableName": "VNIR emission spectrum in root region, 425-600 nm (mean)",
+        "trait": {
+          "traitName": "root system fluorescence emission spectrum",
+          "traitDbId": null,
+          "entity": "root system",
+          "entityDbId": "PO:0009005",
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "array<float>",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:VNIR:EMISSION_SPECTRUM_ROOT_425_600_MEAN",
+        "variableRole": "matrix_trait"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_spectrum.root_425_600.std",
+        "observationVariableName": "VNIR emission spectrum in root region, 425-600 nm (standard deviation)",
+        "trait": {
+          "traitName": "root system fluorescence emission spectrum",
+          "traitDbId": null,
+          "entity": "root system",
+          "entityDbId": "PO:0009005",
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "array<float>",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:VNIR:EMISSION_SPECTRUM_ROOT_425_600_STD",
+        "variableRole": "matrix_trait"
+      },
+      {
+        "observationVariableDbId": "vnir.emission_spectrum.root_425_600.sum",
+        "observationVariableName": "VNIR emission spectrum in root region, 425-600 nm (sum)",
+        "trait": {
+          "traitName": "root system fluorescence emission spectrum",
+          "traitDbId": null,
+          "entity": "root system",
+          "entityDbId": "PO:0009005",
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
+          "methodDbId": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "scaleDbId": null,
+          "dataType": "array<float>",
+          "validValues": null
+        },
+        "contextOfUse": [
+          "plant_timepoint",
+          "hyperspectral",
+          "vnir_emission"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "1.1.0"
+        },
+        "unit": "a.u.",
+        "systemId": "HADES:VNIR:EMISSION_SPECTRUM_ROOT_425_600_SUM",
+        "variableRole": "matrix_trait"
+      }
+    ]
+  }
+}

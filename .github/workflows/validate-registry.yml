@@ -1,0 +1,55 @@
+name: validate-registry
+
+on:
+  push:
+    paths:
+      - 'Makefile'
+      - '.github/workflows/validate-registry.yml'
+      - '*.csv'
+      - '*.md'
+      - 'exports/**'
+      - 'reports/**'
+      - 'scripts/**'
+  pull_request:
+    paths:
+      - 'Makefile'
+      - '.github/workflows/validate-registry.yml'
+      - '*.csv'
+      - '*.md'
+      - 'exports/**'
+      - 'reports/**'
+      - 'scripts/**'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build draft artifacts
+        run: make build
+
+      - name: Validate draft artifacts
+        run: make validate
+
+      - name: Show checksums
+        run: make checksum
+
+      - name: Ensure generated artifacts are clean
+        run: make diff-clean
+
+      - name: Run strict public validation when manifest declares public
+        shell: bash
+        run: |
+          if grep -Eq '^public_release_ready:[[:space:]]*true$$' release_manifest.yaml; then
+            make validate-public RELEASE_STATUS=public PUBLIC_RELEASE_READY=true
+          else
+            echo 'Manifest is not public-release-ready; strict public validation skipped.'
+          fi
