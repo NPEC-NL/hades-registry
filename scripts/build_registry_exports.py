@@ -12,33 +12,33 @@ from datetime import date
 from pathlib import Path
 from typing import Dict, Iterable, List, Tuple
 
-DEFAULT_REGISTRY_VERSION = "1.2.1"
-DEFAULT_EXPORT_SCHEMA_VERSION = "1.1.0"
-PUBLIC_RELEASE_VALUES = {"required_for_public_export", "optional_for_public_export"}
+DEFAULT_REGISTRY_VERSION = "0.0.1"
+DEFAULT_EXPORT_SCHEMA_VERSION = "0.0.1"
+PUBLIC_RECORD_STATUS_EXCLUDE = {"draft", "internal_only"}
 
 PUBLIC_CSV_COLUMNS = [
-    "variable_id",
+    "variableId",
     "parent_variable_id",
-    "label",
     "category",
     "subcategory",
-    "reported_name",
+    "variableName",
     "unit",
+    "unit_accession",
     "value_type",
     "observation_level",
+    "scaleName",
+    "scaleClass",
     "system_id",
-    "trait",
-    "trait_accession",
-    "trait_entity",
-    "trait_entity_accession",
-    "trait_characteristic",
-    "trait_characteristic_accession",
-    "method",
-    "method_accession",
-    "scale",
-    "scale_accession",
     "roi_class",
-    "roi_class_accession",
+    "traitName",
+    "traitAccNumber",
+    "traitEntity",
+    "traitEntityAccessionNumber",
+    "traitCharacteristic",
+    "traitCharacteristicAccessionNumber",
+    "methodName",
+    "methodDesc",
+    "methodRef",
     "variable_role",
     "record_status",
     "introduced_in_version",
@@ -71,7 +71,6 @@ ID_STAT = {
 SOURCE_ONLY_COLUMNS = {
     "registry_layer",
     "materialization_rule",
-    "measurement_method",
     "source_table_hint",
     "qc_recommended",
     "component",
@@ -82,22 +81,10 @@ SOURCE_ONLY_COLUMNS = {
     "pattern_stat_values",
     "stat_axis_semantics",
     "manual_class",
-    "export_requirement",
     "template_variable_id",
     "expanded_axes_json",
     "source_row_number",
-}
-
-MIAPPE_OPTIONAL_NULLABLE = {
-    "trait_accession",
-    "trait_entity_accession",
-    "trait_characteristic_accession",
-    "method_accession",
-    "scale_accession",
-    "roi_class",
-    "roi_class_accession",
-    "notes",
-    "qc_recommended",
+    "traitMappingConfidence",
 }
 
 
@@ -112,16 +99,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--export-schema-version", default=DEFAULT_EXPORT_SCHEMA_VERSION)
     parser.add_argument("--source-commit", default=None)
     parser.add_argument("--public-release-ready", default="false", choices=["true", "false"])
-    parser.add_argument(
-        "--release-status",
-        default="draft",
-        choices=["draft", "release_candidate", "public"],
-    )
-    parser.add_argument(
-        "--strict-public",
-        action="store_true",
-        help="When release-status=public, fail if any public artifact field would still contain [MANUAL].",
-    )
+    parser.add_argument("--release-status", default="draft", choices=["draft", "release_candidate", "public"])
+    parser.add_argument("--strict-public", action="store_true")
     return parser.parse_args()
 
 
@@ -139,9 +118,7 @@ def write_csv(path: Path, rows: List[Dict[str, str]], fieldnames: List[str]) -> 
 
 
 def split_values(value: str | None) -> List[str]:
-    if value is None:
-        return []
-    text = str(value).strip()
+    text = str(value or "").strip()
     if not text:
         return []
     return [part.strip() for part in text.split(",") if part.strip()]
@@ -159,12 +136,9 @@ def normalize_system_id(template: str, axes: Dict[str, str]) -> str:
     out = replace_placeholders(template, axes, human=False)
     if "stat" in axes:
         token = ID_STAT.get(axes["stat"], axes["stat"].upper())
-        out = out.replace("{stat}", token)
         out = re.sub(r"(?<![A-Z0-9])STAT(?![A-Z0-9])", token, out)
         out = re.sub(r"_STAT\b", f"_{token}", out)
         out = re.sub(r":STAT\b", f":{token}", out)
-    if "band_nm" in axes and "A{band_nm}" not in template:
-        out = out.replace("BAND", f"BAND_A{axes['band_nm']}", 1)
     return out
 
 
@@ -172,18 +146,36 @@ def strip_template_notes(notes: str, template_variable_id: str, axes: Dict[str, 
     text = notes or ""
     text = re.sub(r"Pattern row\.[^.]*\.\s*", "", text, flags=re.IGNORECASE)
     text = re.sub(r"Pattern variable\.[^.]*\.\s*", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"Authoring-layer template row; expand to concrete variable IDs before MIAPPE/BrAPI export\.?", "", text, flags=re.IGNORECASE)
-    text = re.sub(r"Use fully expanded variable_id in JSON/BrAPI/MIAPPE exports\.?", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"Authoring-layer template row; expand to concrete variable IDs before downstream export\.?", "", text, flags=re.IGNORECASE)
     text = re.sub(r"\s+", " ", text).strip()
     provenance = f"Expanded from template {template_variable_id} with axes {json.dumps(axes, sort_keys=True)}."
     return (text + " " + provenance).strip() if text else provenance
+
+
+def infer_scale_name(unit: str, value_type: str) -> str:
+    if value_type == "bool":
+        return "boolean"
+    return unit
+
+
+def infer_scale_class(value_type: str) -> str:
+    if value_type == "bool":
+        return "Nominal"
+    return "Numerical"
+
+
+def apply_effective_scale(row: Dict[str, str]) -> None:
+    if not str(row.get("scaleName", "")).strip():
+        row["scaleName"] = infer_scale_name(str(row.get("unit", "")).strip(), str(row.get("value_type", "")).strip())
+    if not str(row.get("scaleClass", "")).strip():
+        row["scaleClass"] = infer_scale_class(str(row.get("value_type", "")).strip())
 
 
 def expand_source_rows(source_rows: List[Dict[str, str]]) -> Tuple[List[Dict[str, str]], List[str]]:
     fieldnames = list(source_rows[0].keys()) + ["template_variable_id", "expanded_axes_json", "source_row_number"]
     concrete: List[Dict[str, str]] = []
     for idx, row in enumerate(source_rows, start=2):
-        is_pattern = (row.get("registry_layer") == "authoring_template") or (row.get("is_pattern", "").strip().lower() == "yes")
+        is_pattern = (row.get("registry_layer") == "authoring_template") or (str(row.get("is_pattern", "")).strip().lower() == "yes")
         if is_pattern:
             rule = row.get("materialization_rule", "")
             stat_values = split_values(row.get("pattern_stat_values"))
@@ -196,22 +188,23 @@ def expand_source_rows(source_rows: List[Dict[str, str]]) -> Tuple[List[Dict[str
                 axes_iter = [dict()]
             for axes in axes_iter:
                 new = deepcopy(row)
-                new["template_variable_id"] = row["variable_id"]
+                new["template_variable_id"] = row["variableId"]
                 new["expanded_axes_json"] = json.dumps(axes, sort_keys=True)
                 new["source_row_number"] = str(idx)
                 for col in list(new.keys()):
                     if col == "system_id":
                         new[col] = normalize_system_id(new.get(col, ""), axes)
                     elif col == "notes":
-                        new[col] = strip_template_notes(new.get(col, ""), row["variable_id"], axes)
+                        new[col] = strip_template_notes(new.get(col, ""), row["variableId"], axes)
                     else:
                         new[col] = replace_placeholders(new.get(col, ""), axes, human=True)
-                new["variable_id"] = replace_placeholders(row["variable_id"], axes, human=False)
+                new["variableId"] = replace_placeholders(row["variableId"], axes, human=False)
                 new["registry_layer"] = "canonical_concrete"
                 new["materialization_rule"] = "concrete_only"
                 new["is_pattern"] = "no"
                 new["pattern_band_values"] = ""
                 new["pattern_stat_values"] = ""
+                apply_effective_scale(new)
                 concrete.append(new)
         else:
             new = deepcopy(row)
@@ -223,28 +216,20 @@ def expand_source_rows(source_rows: List[Dict[str, str]]) -> Tuple[List[Dict[str
             new["is_pattern"] = "no"
             new["pattern_band_values"] = ""
             new["pattern_stat_values"] = ""
+            apply_effective_scale(new)
             concrete.append(new)
-    concrete.sort(key=lambda r: r["variable_id"])
+    concrete.sort(key=lambda r: r["variableId"])
     return concrete, fieldnames
 
 
 def sanitize_export_text(value: str | None) -> str | None:
-    text = str(value or "").replace("[MANUAL]", " ").strip()
+    text = str(value or "").replace("[MANUAL]", " ")
     text = re.sub(r"\s+", " ", text).strip(" ;,")
-    if not text:
-        return None
-    return text
+    return text or None
 
 
 def clean_optional(value: str | None) -> str | None:
-    text = sanitize_export_text(value)
-    if text is None:
-        return None
-    return text
-
-
-def manual_free(value: str | None) -> bool:
-    return "[MANUAL]" not in str(value or "")
+    return sanitize_export_text(value)
 
 
 def to_internal_json_rows(concrete_rows: List[Dict[str, str]]) -> List[Dict[str, object]]:
@@ -262,92 +247,91 @@ def to_internal_json_rows(concrete_rows: List[Dict[str, str]]) -> List[Dict[str,
 
 
 def public_concrete_rows(concrete_rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
-    rows = [deepcopy(r) for r in concrete_rows if r.get("export_requirement") in PUBLIC_RELEASE_VALUES and r.get("record_status") != "draft"]
-    rows.sort(key=lambda r: r["variable_id"])
+    rows = [deepcopy(r) for r in concrete_rows if r.get("record_status") not in PUBLIC_RECORD_STATUS_EXCLUDE]
+    rows.sort(key=lambda r: r["variableId"])
     return rows
 
 
 def to_public_csv_rows(rows: List[Dict[str, str]]) -> List[Dict[str, str]]:
-    public_rows: List[Dict[str, str]] = []
-    for row in rows:
-        public_rows.append({col: row.get(col, "") for col in PUBLIC_CSV_COLUMNS})
-    return public_rows
+    return [{col: row.get(col, "") for col in PUBLIC_CSV_COLUMNS} for row in rows]
 
 
 def to_miappe_json_rows(rows: List[Dict[str, str]]) -> List[Dict[str, object]]:
     out: List[Dict[str, object]] = []
     for row in rows:
-        item = {
-            "observation_variable_id": row["variable_id"],
-            "observation_variable_name": row["label"],
-            "reported_name": row["reported_name"],
-            "observation_level": row["observation_level"],
-            "trait": clean_optional(row.get("trait")),
-            "trait_accession": clean_optional(row.get("trait_accession")),
-            "trait_entity": clean_optional(row.get("trait_entity")),
-            "trait_entity_accession": clean_optional(row.get("trait_entity_accession")),
-            "trait_characteristic": clean_optional(row.get("trait_characteristic")),
-            "trait_characteristic_accession": clean_optional(row.get("trait_characteristic_accession")),
-            "method": clean_optional(row.get("method")),
-            "method_accession": clean_optional(row.get("method_accession")),
-            "scale": clean_optional(row.get("scale")),
-            "scale_accession": clean_optional(row.get("scale_accession")),
-            "value_type": row["value_type"],
-            "unit": row["unit"],
-            "variable_role": row["variable_role"],
-            "category": row["category"],
-            "subcategory": row["subcategory"],
-            "roi": {
-                "class": clean_optional(row.get("roi_class")),
-                "class_accession": clean_optional(row.get("roi_class_accession")),
-            },
-            "status": {
-                "record_status": row["record_status"],
-                "introduced_in_version": row["introduced_in_version"],
-                "deprecated_in_version": clean_optional(row.get("deprecated_in_version")),
-                "replaced_by_variable_id": clean_optional(row.get("replaced_by_variable_id")),
-            },
-            "notes": clean_optional(row.get("notes")),
-            "qc_recommended": clean_optional(row.get("qc_recommended")),
-        }
-        out.append(item)
+        out.append(
+            {
+                "variableId": row["variableId"],
+                "variableName": row["variableName"],
+                "observationLevel": row["observation_level"],
+                "traitName": clean_optional(row.get("traitName")),
+                "traitAccNumber": clean_optional(row.get("traitAccNumber")),
+                "traitEntity": clean_optional(row.get("traitEntity")),
+                "traitEntityAccessionNumber": clean_optional(row.get("traitEntityAccessionNumber")),
+                "traitCharacteristic": clean_optional(row.get("traitCharacteristic")),
+                "traitCharacteristicAccessionNumber": clean_optional(row.get("traitCharacteristicAccessionNumber")),
+                "methodName": clean_optional(row.get("methodName")),
+                "methodDescription": clean_optional(row.get("methodDesc")),
+                "methodReference": clean_optional(row.get("methodRef")),
+                "scaleName": clean_optional(row.get("scaleName")),
+                "scaleClass": clean_optional(row.get("scaleClass")),
+                "unit": row["unit"],
+                "unitAccession": clean_optional(row.get("unit_accession")),
+                "valueType": row["value_type"],
+                "systemId": row["system_id"],
+                "category": row["category"],
+                "subcategory": row["subcategory"],
+                "roiClass": clean_optional(row.get("roi_class")),
+                "variableRole": row["variable_role"],
+                "status": {
+                    "recordStatus": row["record_status"],
+                    "introducedInVersion": row["introduced_in_version"],
+                    "deprecatedInVersion": clean_optional(row.get("deprecated_in_version")),
+                    "replacedByVariableId": clean_optional(row.get("replaced_by_variable_id")),
+                },
+                "notes": clean_optional(row.get("notes")),
+            }
+        )
     return out
 
 
-def to_brapi_json_rows(rows: List[Dict[str, str]]) -> List[Dict[str, object]]:
+def to_brapi_json_rows(rows: List[Dict[str, str]], export_schema_version: str) -> List[Dict[str, object]]:
     data: List[Dict[str, object]] = []
     for row in rows:
         data.append(
             {
-                "observationVariableDbId": row["variable_id"],
-                "observationVariableName": row["label"],
+                "observationVariableDbId": row["variableId"],
+                "observationVariableName": row["variableName"],
                 "trait": {
-                    "traitName": clean_optional(row.get("trait")),
-                    "traitDbId": clean_optional(row.get("trait_accession")),
-                    "entity": clean_optional(row.get("trait_entity")),
-                    "entityDbId": clean_optional(row.get("trait_entity_accession")),
-                    "attribute": clean_optional(row.get("trait_characteristic")),
-                    "attributeDbId": clean_optional(row.get("trait_characteristic_accession")),
+                    "traitName": clean_optional(row.get("traitName")),
+                    "traitDbId": clean_optional(row.get("traitAccNumber")),
+                    "entity": clean_optional(row.get("traitEntity")),
+                    "entityDbId": clean_optional(row.get("traitEntityAccessionNumber")),
+                    "attribute": clean_optional(row.get("traitCharacteristic")),
+                    "attributeDbId": clean_optional(row.get("traitCharacteristicAccessionNumber")),
                 },
                 "method": {
-                    "methodName": clean_optional(row.get("method")),
-                    "methodDbId": clean_optional(row.get("method_accession")),
+                    "methodName": clean_optional(row.get("methodName")),
+                    "description": clean_optional(row.get("methodDesc")),
+                    "reference": clean_optional(row.get("methodRef")),
                 },
                 "scale": {
-                    "scaleName": clean_optional(row.get("scale")),
-                    "scaleDbId": clean_optional(row.get("scale_accession")),
+                    "scaleName": clean_optional(row.get("scaleName")),
                     "dataType": row["value_type"],
                     "validValues": None,
+                    "scaleClass": clean_optional(row.get("scaleClass")),
                 },
                 "contextOfUse": [row["observation_level"], row["category"], row["subcategory"]],
                 "ontologyReference": {
                     "documentationLinks": [],
                     "ontologyName": "MIAPPE-aligned local registry",
-                    "version": DEFAULT_EXPORT_SCHEMA_VERSION,
+                    "version": export_schema_version,
                 },
                 "unit": row["unit"],
+                "unitDbId": clean_optional(row.get("unit_accession")),
                 "systemId": row["system_id"],
                 "variableRole": row["variable_role"],
+                "roiClass": clean_optional(row.get("roi_class")),
             }
         )
     return data
@@ -359,49 +343,31 @@ def to_public_registry_json(rows: List[Dict[str, str]], registry_version: str, e
             "registry_version": registry_version,
             "export_schema_version": export_schema_version,
             "artifact": "public_registry.json",
-            "public_identifier_policy": "Concrete variable_id values in this artifact are treated as stable public identifiers.",
+            "public_identifier_policy": "Concrete variableId values in this artifact are treated as stable public identifiers.",
         },
         "variables": [
             {
-                "variable_id": row["variable_id"],
-                "label": row["label"],
-                "reported_name": row["reported_name"],
-                "system_id": row["system_id"],
+                "variableId": row["variableId"],
+                "variableName": row["variableName"],
+                "systemId": row["system_id"],
                 "category": row["category"],
                 "subcategory": row["subcategory"],
-                "observation_level": row["observation_level"],
+                "observationLevel": row["observation_level"],
                 "unit": row["unit"],
-                "value_type": row["value_type"],
-                "trait": {
-                    "name": clean_optional(row.get("trait")),
-                    "accession": clean_optional(row.get("trait_accession")),
-                },
-                "trait_entity": {
-                    "name": clean_optional(row.get("trait_entity")),
-                    "accession": clean_optional(row.get("trait_entity_accession")),
-                },
-                "trait_characteristic": {
-                    "name": clean_optional(row.get("trait_characteristic")),
-                    "accession": clean_optional(row.get("trait_characteristic_accession")),
-                },
-                "method": {
-                    "name": clean_optional(row.get("method")),
-                    "accession": clean_optional(row.get("method_accession")),
-                },
-                "scale": {
-                    "name": clean_optional(row.get("scale")),
-                    "accession": clean_optional(row.get("scale_accession")),
-                },
-                "roi": {
-                    "class": clean_optional(row.get("roi_class")),
-                    "accession": clean_optional(row.get("roi_class_accession")),
-                },
-                "variable_role": row["variable_role"],
+                "unitAccession": clean_optional(row.get("unit_accession")),
+                "valueType": row["value_type"],
+                "scale": {"scaleName": clean_optional(row.get("scaleName")), "scaleClass": clean_optional(row.get("scaleClass"))},
+                "trait": {"name": clean_optional(row.get("traitName")), "accession": clean_optional(row.get("traitAccNumber"))},
+                "traitEntity": {"name": clean_optional(row.get("traitEntity")), "accession": clean_optional(row.get("traitEntityAccessionNumber"))},
+                "traitCharacteristic": {"name": clean_optional(row.get("traitCharacteristic")), "accession": clean_optional(row.get("traitCharacteristicAccessionNumber"))},
+                "method": {"name": clean_optional(row.get("methodName")), "description": clean_optional(row.get("methodDesc")), "reference": clean_optional(row.get("methodRef"))},
+                "roiClass": clean_optional(row.get("roi_class")),
+                "variableRole": row["variable_role"],
                 "status": {
-                    "record_status": row["record_status"],
-                    "introduced_in_version": row["introduced_in_version"],
-                    "deprecated_in_version": clean_optional(row.get("deprecated_in_version")),
-                    "replaced_by_variable_id": clean_optional(row.get("replaced_by_variable_id")),
+                    "recordStatus": row["record_status"],
+                    "introducedInVersion": row["introduced_in_version"],
+                    "deprecatedInVersion": clean_optional(row.get("deprecated_in_version")),
+                    "replacedByVariableId": clean_optional(row.get("replaced_by_variable_id")),
                 },
             }
             for row in rows
@@ -417,7 +383,7 @@ def any_manual_in_rows(rows: Iterable[Dict[str, str]], columns: Iterable[str] | 
             if cols is not None and key not in cols:
                 continue
             if "[MANUAL]" in str(value or ""):
-                problems.append((row.get("variable_id", ""), key))
+                problems.append((row.get("variableId", ""), key))
     return problems
 
 
@@ -448,14 +414,11 @@ def write_manifest(path: Path, *, registry_version: str, export_schema_version: 
     ]
     for item in generated_files:
         lines.append(f"  - {item}")
-    lines.extend([
-        "conditional_public_generated_files:",
-    ])
+    lines.extend(["conditional_public_generated_files:"])
     for item in public_supported:
         lines.append(f"  - {item}")
     lines.extend([
         "validation_flags:",
-        "  fail_on_required_manual_for_draft_exports: false",
         "  fail_on_any_public_manual_for_public_release: true",
         "  require_concrete_ids_without_braces: true",
         "  require_pixel_count_semantics_policy: true",
@@ -467,8 +430,7 @@ def write_manifest(path: Path, *, registry_version: str, export_schema_version: 
 def write_checksums(path: Path, root: Path, files: List[str]) -> None:
     lines = []
     for rel in files:
-        rel_path = root / rel
-        lines.append(f"{sha256(rel_path)}  {rel}")
+        lines.append(f"{sha256(root / rel)}  {rel}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -479,6 +441,7 @@ def main() -> None:
     exports_dir = Path(args.exports_dir)
     manifest_path = Path(args.manifest)
     checksums_path = Path(args.checksums)
+    root = manifest_path.parent if manifest_path.parent != Path("") else Path(".")
 
     source_rows = read_csv(source_path)
     if not source_rows:
@@ -487,6 +450,7 @@ def main() -> None:
     concrete_rows, concrete_fieldnames = expand_source_rows(source_rows)
     write_csv(concrete_path, concrete_rows, concrete_fieldnames)
 
+    exports_dir.mkdir(parents=True, exist_ok=True)
     internal_payload = {
         "metadata": {
             "registry_version": args.registry_version,
@@ -498,7 +462,6 @@ def main() -> None:
     }
     write_json(exports_dir / "internal_registry.json", internal_payload)
 
-    public_rows = public_concrete_rows(concrete_rows)
     miappe_payload = {
         "metadata": {
             "registry_version": args.registry_version,
@@ -506,7 +469,7 @@ def main() -> None:
             "release_status": args.release_status,
             "artifact": "miappe_variables.json",
         },
-        "variables": to_miappe_json_rows(public_rows),
+        "variables": to_miappe_json_rows(concrete_rows),
     }
     write_json(exports_dir / "miappe_variables.json", miappe_payload)
 
@@ -517,48 +480,47 @@ def main() -> None:
             "release_status": args.release_status,
             "artifact": "brapi_observation_variables.json",
         },
-        "result": {
-            "data": to_brapi_json_rows(public_rows),
-        },
+        "result": {"data": to_brapi_json_rows(concrete_rows, args.export_schema_version)},
     }
     write_json(exports_dir / "brapi_observation_variables.json", brapi_payload)
 
     generated_files = [
-        concrete_path.name,
-        f"{exports_dir.name}/internal_registry.json",
-        f"{exports_dir.name}/miappe_variables.json",
-        f"{exports_dir.name}/brapi_observation_variables.json",
+        str(concrete_path.relative_to(root)),
+        str((exports_dir / "internal_registry.json").relative_to(root)),
+        str((exports_dir / "miappe_variables.json").relative_to(root)),
+        str((exports_dir / "brapi_observation_variables.json").relative_to(root)),
+        "reports/validation_report.json",
     ]
 
     if args.release_status == "public":
-        public_manual = any_manual_in_rows(public_rows)
-        if args.strict_public and public_manual:
-            first = ", ".join(f"{vid}:{field}" for vid, field in public_manual[:10])
-            raise SystemExit(f"Public release blocked because [MANUAL] remains in public rows: {first}")
-        public_csv_path = concrete_path.with_name("variable_registry.public.concrete.csv")
+        public_rows = public_concrete_rows(concrete_rows)
+        public_csv_path = root / "variable_registry.public.concrete.csv"
+        public_json_path = exports_dir / "public_registry.json"
         public_csv_rows = to_public_csv_rows(public_rows)
         write_csv(public_csv_path, public_csv_rows, PUBLIC_CSV_COLUMNS)
-        public_json_path = exports_dir / "public_registry.json"
         write_json(public_json_path, to_public_registry_json(public_rows, args.registry_version, args.export_schema_version))
-        generated_files.extend([public_csv_path.name, f"{exports_dir.name}/public_registry.json"])
-    else:
-        for path in [concrete_path.with_name("variable_registry.public.concrete.csv"), exports_dir / "public_registry.json"]:
-            if path.exists():
-                path.unlink()
+        generated_files.extend([
+            str(public_csv_path.relative_to(root)),
+            str(public_json_path.relative_to(root)),
+        ])
+        if args.strict_public:
+            problems = any_manual_in_rows(public_csv_rows)
+            if problems:
+                raise SystemExit(f"Strict public build blocked by [MANUAL] in public fields: {problems[:10]}")
 
     source_commit = args.source_commit or f"registry-v{args.registry_version}-{args.release_status}"
     public_release_ready = args.public_release_ready.lower() == "true"
-
     write_manifest(
         manifest_path,
         registry_version=args.registry_version,
         export_schema_version=args.export_schema_version,
         release_status=args.release_status,
-        generated_files=generated_files + ["reports/validation_report.json", checksums_path.name],
+        generated_files=generated_files,
         source_commit=source_commit,
         public_release_ready=public_release_ready,
     )
-    write_checksums(checksums_path, manifest_path.parent, generated_files)
+    checksum_files = [p for p in generated_files if p != "reports/validation_report.json"] + [str(manifest_path.relative_to(root))]
+    write_checksums(checksums_path, root, checksum_files)
 
 
 if __name__ == "__main__":

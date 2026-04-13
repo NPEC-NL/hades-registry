@@ -49,9 +49,7 @@ Use:
 Use `.pixel_count.px` for count-of-pixels variables.
 These rows must remain semantically consistent:
 - `unit = px`
-- `quality = count`
-- `trait_characteristic = count`
-- `scale = count`
+- `traitCharacteristic = count`
 - `variable_role = analysis_derived`
 
 ### Structured outputs
@@ -69,8 +67,3 @@ Authoring-only:
 - brace patterns such as `{stat}` and `{band_nm}`
 - template expansion instructions
 - template-only bookkeeping metadata
-
-## Platform scope
-
-Current IDs are HADES-scoped.
-Future Helios or non-PSI additions should not force a rename of already released HADES public IDs.

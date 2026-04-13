@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "registry_version": "1.2.1",
-    "export_schema_version": "1.1.0",
+    "registry_version": "0.0.1",
+    "export_schema_version": "0.0.1",
     "release_status": "draft",
     "artifact": "brapi_observation_variables.json"
   },
@@ -9,7 +9,7 @@
     "data": [
       {
         "observationVariableDbId": "coumarin_fluor.lateral_roots.mean",
-        "observationVariableName": "Coumarin-associated fluorescence in lateral roots (mean)",
+        "observationVariableName": "Coumarin fluorescence mean in lateral roots",
         "trait": {
           "traitName": "lateral root(s) metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -19,14 +19,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -36,15 +37,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:LATERAL_ROOTS_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "lateral_roots_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.lateral_roots.pixel_count.px",
-        "observationVariableName": "ROI pixel count (lateral roots) for coumarin fluorescence",
+        "observationVariableName": "Pixel count (lateral roots)",
         "trait": {
           "traitName": "lateral root(s) ROI pixel count",
           "traitDbId": null,
@@ -54,14 +57,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -71,15 +75,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_LATERAL_ROOTS_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "lateral_roots_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.lateral_roots.sum",
-        "observationVariableName": "Coumarin-associated fluorescence in lateral roots (sum)",
+        "observationVariableName": "Coumarin fluorescence sum in lateral roots",
         "trait": {
           "traitName": "lateral root(s) metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -89,14 +95,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -106,15 +113,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:LATERAL_ROOTS_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "lateral_roots_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.main_root.mean",
-        "observationVariableName": "Coumarin-associated fluorescence in primary root (mean)",
+        "observationVariableName": "Coumarin fluorescence mean in primary root",
         "trait": {
           "traitName": "primary root metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -124,14 +133,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -141,15 +151,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:MAIN_ROOT_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.main_root.pixel_count.px",
-        "observationVariableName": "ROI pixel count (main root) for coumarin fluorescence",
+        "observationVariableName": "Pixel count (main root)",
         "trait": {
           "traitName": "primary root ROI pixel count",
           "traitDbId": null,
@@ -159,14 +171,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -176,15 +189,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_MAIN_ROOT_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.main_root.sum",
-        "observationVariableName": "Coumarin-associated fluorescence in primary root (sum)",
+        "observationVariableName": "Coumarin fluorescence sum in primary root",
         "trait": {
           "traitName": "primary root metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -194,14 +209,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -211,15 +227,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:MAIN_ROOT_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.rhizoplane.mean",
-        "observationVariableName": "Coumarin-associated fluorescence in peri-root region (mean)",
+        "observationVariableName": "Coumarin fluorescence mean in peri-root region",
         "trait": {
           "traitName": "peri-root region metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -229,14 +247,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -246,15 +265,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:RHIZOPLANE_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "coumarin_fluor.rhizoplane.pixel_count.px",
-        "observationVariableName": "ROI pixel count (rhizoplane) for coumarin fluorescence",
+        "observationVariableName": "Pixel count (rhizoplane)",
         "trait": {
           "traitName": "peri-root region ROI pixel count",
           "traitDbId": null,
@@ -264,14 +285,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -281,15 +303,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_RHIZOPLANE_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "coumarin_fluor.rhizoplane.sum",
-        "observationVariableName": "Coumarin-associated fluorescence in peri-root region (sum)",
+        "observationVariableName": "Coumarin fluorescence sum in peri-root region",
         "trait": {
           "traitName": "peri-root region metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -299,14 +323,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -316,15 +341,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:RHIZOPLANE_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "coumarin_fluor.shoot.mean",
-        "observationVariableName": "Coumarin-associated fluorescence in shoot (mean)",
+        "observationVariableName": "Coumarin fluorescence mean in shoot",
         "trait": {
           "traitName": "shoot system metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -334,14 +361,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -351,15 +379,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:SHOOT_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "shoot_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.shoot.pixel_count.px",
-        "observationVariableName": "ROI pixel count (shoot) for coumarin fluorescence",
+        "observationVariableName": "Pixel count (shoot)",
         "trait": {
           "traitName": "shoot system ROI pixel count",
           "traitDbId": null,
@@ -369,14 +399,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -386,15 +417,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:COUMARIN_SHOOT_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "shoot_roi"
       },
       {
         "observationVariableDbId": "coumarin_fluor.shoot.sum",
-        "observationVariableName": "Coumarin-associated fluorescence in shoot (sum)",
+        "observationVariableName": "Coumarin fluorescence sum in shoot",
         "trait": {
           "traitName": "shoot system metabolite-associated fluorescence signal",
           "traitDbId": null,
@@ -404,14 +437,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam/FluorCam aligned fluorescence ROI quantification; coumarin-associated channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the coumarin-associated channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -421,15 +455,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:COUMARIN_FLUOR:SHOOT_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "shoot_roi"
       },
       {
         "observationVariableDbId": "fluor.mCherry.branch_nodes.mean",
-        "observationVariableName": "mCherry fluorescence in primary-root branch-node ROI (mean)",
+        "observationVariableName": "mCherry fluorescence mean in primary-root branch-node ROI",
         "trait": {
           "traitName": "primary root microbial fluorescence signal (branch-node ROI)",
           "traitDbId": null,
@@ -439,14 +475,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mCherry microbial fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -456,15 +493,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MCHERRY_BRANCH_NODES_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "branch_nodes_roi"
       },
       {
         "observationVariableDbId": "fluor.mCherry.branch_nodes.pixel_count.px",
-        "observationVariableName": "ROI pixel count (branch nodes) for mCherry fluorescence",
+        "observationVariableName": "Pixel count (branch nodes)",
         "trait": {
           "traitName": "primary root branch-node ROI pixel count",
           "traitDbId": null,
@@ -474,14 +513,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the mCherry microbial fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -491,15 +531,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MCHERRY_BRANCH_NODES_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "branch_nodes_roi"
       },
       {
         "observationVariableDbId": "fluor.mCherry.branch_nodes.sum",
-        "observationVariableName": "mCherry fluorescence in primary-root branch-node ROI (sum)",
+        "observationVariableName": "mCherry fluorescence sum in primary-root branch-node ROI",
         "trait": {
           "traitName": "primary root microbial fluorescence signal (branch-node ROI)",
           "traitDbId": null,
@@ -509,14 +551,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mCherry microbial fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -526,15 +569,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MCHERRY_BRANCH_NODES_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "branch_nodes_roi"
       },
       {
         "observationVariableDbId": "fluor.mCherry.main_root.mean",
-        "observationVariableName": "mCherry fluorescence along primary root (mean)",
+        "observationVariableName": "mCherry fluorescence mean along primary root",
         "trait": {
           "traitName": "primary root microbial fluorescence signal",
           "traitDbId": null,
@@ -544,14 +589,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mCherry microbial fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -561,15 +607,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MCHERRY_MAIN_ROOT_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "fluor.mCherry.main_root.pixel_count.px",
-        "observationVariableName": "ROI pixel count (main root) for mCherry fluorescence",
+        "observationVariableName": "Pixel count (main root)",
         "trait": {
           "traitName": "primary root ROI pixel count",
           "traitDbId": null,
@@ -579,14 +627,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the mCherry microbial fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -596,15 +645,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MCHERRY_MAIN_ROOT_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "fluor.mCherry.main_root.sum",
-        "observationVariableName": "mCherry fluorescence along primary root (sum)",
+        "observationVariableName": "mCherry fluorescence sum along primary root",
         "trait": {
           "traitName": "primary root microbial fluorescence signal",
           "traitDbId": null,
@@ -614,14 +665,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mCherry-labelled microbe channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mCherry microbial fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -631,15 +683,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MCHERRY_MAIN_ROOT_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "fluor.mTurquoise2.branch_nodes.mean",
-        "observationVariableName": "mTurquoise2 fluorescence in primary-root branch-node ROI (mean)",
+        "observationVariableName": "mTurquoise2 fluorescence mean in primary-root branch-node ROI",
         "trait": {
           "traitName": "primary root reporter fluorescence signal (branch-node ROI)",
           "traitDbId": null,
@@ -649,14 +703,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mTurquoise2 reporter fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -666,15 +721,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MTURQUOISE2_BRANCH_NODES_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "branch_nodes_roi"
       },
       {
         "observationVariableDbId": "fluor.mTurquoise2.branch_nodes.pixel_count.px",
-        "observationVariableName": "ROI pixel count (branch nodes) for mTurquoise2 fluorescence",
+        "observationVariableName": "Pixel count (branch nodes)",
         "trait": {
           "traitName": "primary root branch-node ROI pixel count",
           "traitDbId": null,
@@ -684,14 +741,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the mTurquoise2 reporter fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -701,15 +759,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MTURQUOISE2_BRANCH_NODES_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "branch_nodes_roi"
       },
       {
         "observationVariableDbId": "fluor.mTurquoise2.branch_nodes.sum",
-        "observationVariableName": "mTurquoise2 fluorescence in primary-root branch-node ROI (sum)",
+        "observationVariableName": "mTurquoise2 fluorescence sum in primary-root branch-node ROI",
         "trait": {
           "traitName": "primary root reporter fluorescence signal (branch-node ROI)",
           "traitDbId": null,
@@ -719,14 +779,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mTurquoise2 reporter fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -736,15 +797,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MTURQUOISE2_BRANCH_NODES_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "branch_nodes_roi"
       },
       {
         "observationVariableDbId": "fluor.mTurquoise2.main_root.mean",
-        "observationVariableName": "mTurquoise2 fluorescence along primary root (mean)",
+        "observationVariableName": "mTurquoise2 fluorescence mean along primary root",
         "trait": {
           "traitName": "primary root reporter fluorescence signal",
           "traitDbId": null,
@@ -754,14 +817,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mTurquoise2 reporter fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -771,15 +835,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MTURQUOISE2_MAIN_ROOT_MEAN",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "fluor.mTurquoise2.main_root.pixel_count.px",
-        "observationVariableName": "ROI pixel count (main root) for mTurquoise2 fluorescence",
+        "observationVariableName": "Pixel count (main root)",
         "trait": {
           "traitName": "primary root ROI pixel count",
           "traitDbId": null,
@@ -789,14 +855,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel; ROI pixel enumeration",
-          "methodDbId": null
+          "methodName": "Root ROI mask pixel counting",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are aligned to masks derived from backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. This output records the number of segmented pixels assigned to the specified ROI for the mTurquoise2 reporter fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -806,15 +873,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MTURQUOISE2_MAIN_ROOT_PIXELS",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": "main_root_roi"
       },
       {
         "observationVariableDbId": "fluor.mTurquoise2.main_root.sum",
-        "observationVariableName": "mTurquoise2 fluorescence along primary root (sum)",
+        "observationVariableName": "mTurquoise2 fluorescence sum along primary root",
         "trait": {
           "traitName": "primary root reporter fluorescence signal",
           "traitDbId": null,
@@ -824,14 +893,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "RootCam dual-channel fluorescence ROI quantification; mTurquoise2 reporter channel",
-          "methodDbId": null
+          "methodName": "Root ROI fluorescence quantification",
+          "description": "Bottom-view fluorescence images from the HADES root imaging station are quantified with masks transferred from aligned backlit transmission images. The FluorCam/RootCam hardware uses a 12.36 MP monochrome CMOS sensor, multichannel LED excitation, and motorized emission filtering. Template rows expand over summary statistics such as mean intensity and total signal for the specified ROI in the mTurquoise2 reporter fluorescence channel.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -841,15 +911,1955 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:FLUOR:MTURQUOISE2_MAIN_ROOT_SUM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "main_root_roi"
+      },
+      {
+        "observationVariableDbId": "psi.fc.fo",
+        "observationVariableName": "Fo",
+        "trait": {
+          "traitName": "plant baseline fluorescence intensity",
+          "traitDbId": null,
+          "entity": "plant",
+          "entityDbId": "PO:0000003",
+          "attribute": "fluorescence intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI FluorCam vendor analysis",
+          "description": "Vendor-emitted fluorescence summary from PSI PlantScreen/PS Data Analyzer for the HADES FluorCam station. The underlying station is a bottom-view, light-isolated imaging box with a 12.36 MP monochrome CMOS sensor, multichannel excitation, and motorized emission filtering. This registry preserves the PSI-generated analysis value from the Fc_Plant table rather than recomputing it.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "fluorcam"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:FC_PLANT:FO",
+        "variableRole": "vendor_derived",
+        "roiClass": null
+      },
+      {
+        "observationVariableDbId": "psi.fc.fo_gauss",
+        "observationVariableName": "Fo_gauss",
+        "trait": {
+          "traitName": "plant baseline fluorescence intensity",
+          "traitDbId": null,
+          "entity": "plant",
+          "entityDbId": "PO:0000003",
+          "attribute": "fluorescence intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI FluorCam vendor analysis",
+          "description": "Vendor-emitted fluorescence summary from PSI PlantScreen/PS Data Analyzer for the HADES FluorCam station. The underlying station is a bottom-view, light-isolated imaging box with a 12.36 MP monochrome CMOS sensor, multichannel excitation, and motorized emission filtering. This registry preserves the PSI-generated analysis value from the Fc_Plant table rather than recomputing it.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "fluorcam"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:FC_PLANT:FO_GAUSS",
+        "variableRole": "vendor_derived",
+        "roiClass": null
+      },
+      {
+        "observationVariableDbId": "psi.fc.fo_median",
+        "observationVariableName": "Fo_median",
+        "trait": {
+          "traitName": "plant baseline fluorescence intensity",
+          "traitDbId": null,
+          "entity": "plant",
+          "entityDbId": "PO:0000003",
+          "attribute": "fluorescence intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI FluorCam vendor analysis",
+          "description": "Vendor-emitted fluorescence summary from PSI PlantScreen/PS Data Analyzer for the HADES FluorCam station. The underlying station is a bottom-view, light-isolated imaging box with a 12.36 MP monochrome CMOS sensor, multichannel excitation, and motorized emission filtering. This registry preserves the PSI-generated analysis value from the Fc_Plant table rather than recomputing it.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "fluorcam"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:FC_PLANT:FO_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": null
+      },
+      {
+        "observationVariableDbId": "psi.fc.kinetic.series",
+        "observationVariableName": "Kinetic columns (e.g., 16000000)",
+        "trait": {
+          "traitName": "plant fluorescence kinetic series",
+          "traitDbId": null,
+          "entity": "plant",
+          "entityDbId": "PO:0000003",
+          "attribute": "fluorescence intensity over time",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI FluorCam vendor analysis",
+          "description": "Vendor-emitted kinetic fluorescence series from PSI PlantScreen/PS Data Analyzer. The HADES FluorCam station supports protocol-defined fluorescence measurements, and the Kinetic table stores protocol/frame-dependent timepoint columns as exported by PSI rather than recomputed in this registry.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "array<float>",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "fluorcam"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:FC_KINETIC:SERIES",
+        "variableRole": "vendor_derived_matrix",
+        "roiClass": null
+      },
+      {
+        "observationVariableDbId": "psi.fc.size.px",
+        "observationVariableName": "Size",
+        "trait": {
+          "traitName": "plant mask area",
+          "traitDbId": null,
+          "entity": "plant",
+          "entityDbId": "PO:0000003",
+          "attribute": "area (pixel count)",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "PSI FluorCam vendor analysis",
+          "description": "Vendor-emitted value from PSI PlantScreen/PS Data Analyzer fluorescence analysis tables for the HADES FluorCam station. The underlying station is a bottom-view, light-isolated imaging box with a 12.36 MP monochrome CMOS sensor, multichannel excitation, and motorized emission filtering. This variable preserves the Fc_Plant size output representing plant mask area in pixels.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "dataType": "int",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "fluorcam"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "px",
+        "unitDbId": null,
+        "systemId": "PSI:FC_PLANT:SIZE",
+        "variableRole": "vendor_derived",
+        "roiClass": "plant_mask"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.avg_spectrum.vector",
+        "observationVariableName": "Hc_avgSpectrum wavelength columns (e.g., 349.9 … 899.12)",
+        "trait": {
+          "traitName": "PSI VNIR average spectrum",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted average spectrum from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Wavelength-axis columns from the Hc_avgSpectrum table are preserved as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "array<float>",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_AVG_SPECTRUM:VECTOR",
+        "variableRole": "vendor_derived_matrix",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A440.avg",
+        "observationVariableName": "A440-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A440.max",
+        "observationVariableName": "A440-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A440.median",
+        "observationVariableName": "A440-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A440.min",
+        "observationVariableName": "A440-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A440.stddev",
+        "observationVariableName": "A440-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A480.avg",
+        "observationVariableName": "A480-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A480.max",
+        "observationVariableName": "A480-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A480.median",
+        "observationVariableName": "A480-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A480.min",
+        "observationVariableName": "A480-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A480.stddev",
+        "observationVariableName": "A480-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A490.avg",
+        "observationVariableName": "A490-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A490.max",
+        "observationVariableName": "A490-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A490.median",
+        "observationVariableName": "A490-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A490.min",
+        "observationVariableName": "A490-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A490.stddev",
+        "observationVariableName": "A490-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A570.avg",
+        "observationVariableName": "A570-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A570.max",
+        "observationVariableName": "A570-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A570.median",
+        "observationVariableName": "A570-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A570.min",
+        "observationVariableName": "A570-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A570.stddev",
+        "observationVariableName": "A570-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A625.avg",
+        "observationVariableName": "A625-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A625.max",
+        "observationVariableName": "A625-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A625.median",
+        "observationVariableName": "A625-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A625.min",
+        "observationVariableName": "A625-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A625.stddev",
+        "observationVariableName": "A625-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A680.avg",
+        "observationVariableName": "A680-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A680.max",
+        "observationVariableName": "A680-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A680.median",
+        "observationVariableName": "A680-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A680.min",
+        "observationVariableName": "A680-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A680.stddev",
+        "observationVariableName": "A680-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A720.avg",
+        "observationVariableName": "A720-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A720.max",
+        "observationVariableName": "A720-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A720.median",
+        "observationVariableName": "A720-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A720.min",
+        "observationVariableName": "A720-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A720.stddev",
+        "observationVariableName": "A720-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A750.avg",
+        "observationVariableName": "A750-average (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A750.max",
+        "observationVariableName": "A750-maximum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A750.median",
+        "observationVariableName": "A750-median (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A750.min",
+        "observationVariableName": "A750-minimum (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.band.A750.stddev",
+        "observationVariableName": "A750-standard deviation (e.g., A570-avg)",
+        "trait": {
+          "traitName": "PSI VNIR band intensity",
+          "traitDbId": null,
+          "entity": "root region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "spectral intensity",
+          "attributeDbId": "PATO:0000049"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted wavelength-specific summary statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve Hc_Plant band statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "a.u.",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "a.u.",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:BAND_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_root_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.size.avg",
+        "observationVariableName": "Size-average (e.g., Size-avg)",
+        "trait": {
+          "traitName": "PSI VNIR ROI size",
+          "traitDbId": null,
+          "entity": "plant region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "area (pixel count)",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted ROI size statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve the Hc_Plant size statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "px",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:SIZE_AVG",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_plant_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.size.max",
+        "observationVariableName": "Size-maximum (e.g., Size-avg)",
+        "trait": {
+          "traitName": "PSI VNIR ROI size",
+          "traitDbId": null,
+          "entity": "plant region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "area (pixel count)",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted ROI size statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve the Hc_Plant size statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "px",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:SIZE_MAX",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_plant_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.size.median",
+        "observationVariableName": "Size-median (e.g., Size-avg)",
+        "trait": {
+          "traitName": "PSI VNIR ROI size",
+          "traitDbId": null,
+          "entity": "plant region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "area (pixel count)",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted ROI size statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve the Hc_Plant size statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "px",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:SIZE_MEDIAN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_plant_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.size.min",
+        "observationVariableName": "Size-minimum (e.g., Size-avg)",
+        "trait": {
+          "traitName": "PSI VNIR ROI size",
+          "traitDbId": null,
+          "entity": "plant region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "area (pixel count)",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted ROI size statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve the Hc_Plant size statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "px",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:SIZE_MIN",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_plant_region_roi"
+      },
+      {
+        "observationVariableDbId": "psi.vnir.size.stddev",
+        "observationVariableName": "Size-standard deviation (e.g., Size-avg)",
+        "trait": {
+          "traitName": "PSI VNIR ROI size",
+          "traitDbId": null,
+          "entity": "plant region (PSI-defined)",
+          "entityDbId": null,
+          "attribute": "area (pixel count)",
+          "attributeDbId": "PATO:0001323"
+        },
+        "method": {
+          "methodName": "PSI VNIR vendor analysis",
+          "description": "Vendor-emitted ROI size statistics from PSI PlantScreen/PS Data Analyzer for the HADES VNIR hyperspectral unit. The unit records 350–900 nm data, uses 365 nm UV excitation for fluorescence mode, and uses white-light transmission mode for outline masking. Template rows preserve the Hc_Plant size statistics exactly as exported by PSI.",
+          "reference": null
+        },
+        "scale": {
+          "scaleName": "px",
+          "dataType": "float",
+          "validValues": null,
+          "scaleClass": "Numerical"
+        },
+        "contextOfUse": [
+          "plant_round",
+          "psi_vendor_analysis",
+          "hyperspectral"
+        ],
+        "ontologyReference": {
+          "documentationLinks": [],
+          "ontologyName": "MIAPPE-aligned local registry",
+          "version": "0.0.1"
+        },
+        "unit": "px",
+        "unitDbId": null,
+        "systemId": "PSI:VNIR_PLANT:SIZE_STDDEV",
+        "variableRole": "vendor_derived",
+        "roiClass": "psi_plant_region_roi"
       },
       {
         "observationVariableDbId": "root.branch_node.count",
-        "observationVariableName": "Root branch node count",
+        "observationVariableName": "Node number",
         "trait": {
           "traitName": "root branch node count",
           "traitDbId": null,
@@ -859,14 +2869,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
-          "methodDbId": null
+          "methodName": "Backlit root architecture extraction",
+          "description": "Backlit transmission images from the HADES morphometric unit are analyzed with segmentation and graph-based root trait extraction. The imaging station uses a 12.36 MP monochrome CMOS sensor and white-light transmission mode optimized for square Petri dishes; downstream analysis may include skeletonization and occlusion handling to derive root counts and lengths.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -876,15 +2887,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "count",
+        "unitDbId": "UO:0000189",
         "systemId": "HADES:ROOTCAM:BRANCH_NODE_COUNT",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "root.lateral.count",
-        "observationVariableName": "Lateral root count",
+        "observationVariableName": "Lateral root number",
         "trait": {
           "traitName": "lateral root count",
           "traitDbId": "TO:0001013",
@@ -894,14 +2907,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
-          "methodDbId": null
+          "methodName": "Backlit root architecture extraction",
+          "description": "Backlit transmission images from the HADES morphometric unit are analyzed with segmentation and graph-based root trait extraction. The imaging station uses a 12.36 MP monochrome CMOS sensor and white-light transmission mode optimized for square Petri dishes; downstream analysis may include skeletonization and occlusion handling to derive root counts and lengths.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -911,15 +2925,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "count",
+        "unitDbId": "UO:0000189",
         "systemId": "HADES:ROOTCAM:LATERAL_ROOT_COUNT",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "root.lateral.total_length.px",
-        "observationVariableName": "Total lateral root length (px)",
+        "observationVariableName": "Total lateral root length",
         "trait": {
           "traitName": "lateral root total length",
           "traitDbId": "TO:0001012",
@@ -929,14 +2945,15 @@
           "attributeDbId": "PATO:0000122"
         },
         "method": {
-          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
-          "methodDbId": null
+          "methodName": "Backlit root architecture extraction",
+          "description": "Backlit transmission images from the HADES morphometric unit are analyzed with segmentation and graph-based root trait extraction. The imaging station uses a 12.36 MP monochrome CMOS sensor and white-light transmission mode optimized for square Petri dishes; downstream analysis may include skeletonization and occlusion handling to derive root counts and lengths.",
+          "reference": null
         },
         "scale": {
           "scaleName": "px",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -946,15 +2963,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:ROOTCAM:TOTAL_LATERAL_ROOT_LENGTH_PX",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "root.primary.length.px",
-        "observationVariableName": "Primary (main) root length (px)",
+        "observationVariableName": "Primary/main root length",
         "trait": {
           "traitName": "primary root length",
           "traitDbId": "TO:0000227",
@@ -964,14 +2983,15 @@
           "attributeDbId": "PATO:0000122"
         },
         "method": {
-          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
-          "methodDbId": null
+          "methodName": "Backlit root architecture extraction",
+          "description": "Backlit transmission images from the HADES morphometric unit are analyzed with segmentation and graph-based root trait extraction. The imaging station uses a 12.36 MP monochrome CMOS sensor and white-light transmission mode optimized for square Petri dishes; downstream analysis may include skeletonization and occlusion handling to derive root counts and lengths.",
+          "reference": null
         },
         "scale": {
           "scaleName": "px",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -981,15 +3001,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:ROOTCAM:PRIMARY_ROOT_LENGTH_PX",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "root.tip.count",
-        "observationVariableName": "Root tip count",
+        "observationVariableName": "Tip number",
         "trait": {
           "traitName": "root tip count",
           "traitDbId": null,
@@ -999,14 +3021,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
-          "methodDbId": null
+          "methodName": "Backlit root architecture extraction",
+          "description": "Backlit transmission images from the HADES morphometric unit are analyzed with segmentation and graph-based root trait extraction. The imaging station uses a 12.36 MP monochrome CMOS sensor and white-light transmission mode optimized for square Petri dishes; downstream analysis may include skeletonization and occlusion handling to derive root counts and lengths.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -1016,11 +3039,13 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "count",
+        "unitDbId": "UO:0000189",
         "systemId": "HADES:ROOTCAM:ROOT_TIP_COUNT",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "screen.outlier_flag",
@@ -1034,14 +3059,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "Screening summary computation; binary indicator for >95th percentile within day-by-trait distribution",
-          "methodDbId": null
+          "methodName": "Screen summary outlier calling",
+          "description": "Post-analysis screening summary that compares observations within a day-by-variable distribution and emits a boolean flag for values above the configured percentile threshold.",
+          "reference": null
         },
         "scale": {
-          "scaleName": "unitless",
-          "scaleDbId": "UO:0000186",
+          "scaleName": "boolean",
           "dataType": "bool",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Nominal"
         },
         "contextOfUse": [
           "plant_day_trait",
@@ -1051,15 +3077,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "unitless",
+        "unitDbId": "UO:0000186",
         "systemId": "HADES:SCREEN:OUTLIER_FLAG_GT95PCT",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.ellipse_fit_sse",
-        "observationVariableName": "Seed ellipse-fit SSE (unitless)",
+        "observationVariableName": "Seed shape – SSE",
         "trait": {
           "traitName": "seed ellipse-fit error",
           "traitDbId": "TO:0000484",
@@ -1069,14 +3097,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable records the vendor-reported ellipse-fit residual score.",
+          "reference": null
         },
         "scale": {
           "scaleName": "unitless",
-          "scaleDbId": "UO:0000186",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1086,15 +3115,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "unitless",
+        "unitDbId": "UO:0000186",
         "systemId": "PSI:BOXEED:SEED_ELLIPSE_FIT_SSE",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.fluorescence_intensity.percent",
-        "observationVariableName": "Seed fluorescence intensity (%)",
+        "observationVariableName": "Seed Fluorescence intensity (%)",
         "trait": {
           "traitName": "seed fluorescence intensity",
           "traitDbId": null,
@@ -1104,14 +3135,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable corresponds to the optional vendor fluorescence measurement reported as percent.",
+          "reference": null
         },
         "scale": {
           "scaleName": "%",
-          "scaleDbId": "UO:0000187",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1121,15 +3153,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "%",
+        "unitDbId": "UO:0000187",
         "systemId": "PSI:BOXEED:SEED_FLUORESCENCE_INTENSITY_PCT",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.length.mm",
-        "observationVariableName": "Seed length (mm)",
+        "observationVariableName": "Seed length",
         "trait": {
           "traitName": "seed length",
           "traitDbId": "TO:0000146",
@@ -1139,14 +3173,15 @@
           "attributeDbId": "PATO:0000122"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. The vendor reports this dimension in millimeters after image-based seed measurement.",
+          "reference": null
         },
         "scale": {
           "scaleName": "mm",
-          "scaleDbId": "UO:0000016",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1156,15 +3191,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "mm",
+        "unitDbId": "UO:0000016",
         "systemId": "PSI:BOXEED:SEED_LENGTH_MM",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.length_area_ratio",
-        "observationVariableName": "Seed L/S ratio (length/area)",
+        "observationVariableName": "Seed shape – L/S ratio",
         "trait": {
           "traitName": "seed length-to-area ratio",
           "traitDbId": "TO:0000484",
@@ -1174,14 +3211,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable records the vendor-reported length-to-area ratio (L/S ratio).",
+          "reference": null
         },
         "scale": {
           "scaleName": "ratio",
-          "scaleDbId": "UO:0000190",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1191,15 +3229,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "unitless",
+        "unitDbId": "UO:0000186",
         "systemId": "PSI:BOXEED:SEED_LENGTH_AREA_RATIO",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.major_axis_angle.deg",
-        "observationVariableName": "Seed axes angle (deg)",
+        "observationVariableName": "Axes angle",
         "trait": {
           "traitName": "seed axes angle",
           "traitDbId": null,
@@ -1209,14 +3249,15 @@
           "attributeDbId": "PATO:0000133"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable records the vendor-reported major-axis orientation angle.",
+          "reference": null
         },
         "scale": {
           "scaleName": "deg",
-          "scaleDbId": "UO:0000185",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1226,15 +3267,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "deg",
+        "unitDbId": "UO:0000185",
         "systemId": "PSI:BOXEED:SEED_MAJOR_AXIS_ANGLE_DEG",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.pixel_count.px",
-        "observationVariableName": "Seed pixel count (px)",
+        "observationVariableName": "Pixel count",
         "trait": {
           "traitName": "seed pixel count",
           "traitDbId": null,
@@ -1244,14 +3287,15 @@
           "attributeDbId": "PATO:0000070"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable records the vendor-reported segmented seed pixel count.",
+          "reference": null
         },
         "scale": {
           "scaleName": "count",
-          "scaleDbId": "UO:0000189",
           "dataType": "int",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1261,11 +3305,13 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "PSI:BOXEED:SEED_PIXEL_COUNT",
-        "variableRole": "analysis_derived"
+        "variableRole": "analysis_derived",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.projected_area.px_per_mm2",
@@ -1279,14 +3325,15 @@
           "attributeDbId": "PATO:0001323"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable preserves the vendor-reported seed area quantity and unit label.",
+          "reference": null
         },
         "scale": {
           "scaleName": "px/mm2",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1296,15 +3343,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px/mm2",
+        "unitDbId": null,
         "systemId": "PSI:BOXEED:SEED_PROJECTED_AREA_PX_PER_MM2",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.roundness",
-        "observationVariableName": "Seed roundness (unitless)",
+        "observationVariableName": "Seed roundness",
         "trait": {
           "traitName": "seed roundness",
           "traitDbId": "TO:0000484",
@@ -1314,14 +3363,15 @@
           "attributeDbId": "PATO:0000052"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. This variable records the vendor-reported roundness descriptor.",
+          "reference": null
         },
         "scale": {
           "scaleName": "unitless",
-          "scaleDbId": "UO:0000186",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1331,15 +3381,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "unitless",
+        "unitDbId": "UO:0000186",
         "systemId": "PSI:BOXEED:SEED_ROUNDNESS",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "seed.width.mm",
-        "observationVariableName": "Seed width (mm)",
+        "observationVariableName": "Seed width",
         "trait": {
           "traitName": "seed width",
           "traitDbId": "TO:0000149",
@@ -1349,14 +3401,15 @@
           "attributeDbId": "PATO:0000921"
         },
         "method": {
-          "methodName": "Boxeed imaging-based seed phenotyping",
-          "methodDbId": null
+          "methodName": "Boxeed seed phenotyping",
+          "description": "Image-based seed descriptor emitted by the integrated Boxeed module during pre-sowing seed phenotyping. The HADES preparation table uses a PSI-integrated Boxeed seeder for automated seed handling and stores vendor-reported seed descriptors for downstream use; the exact internal derivation algorithm is not publicly specified. The vendor reports this dimension in millimeters after image-based seed measurement.",
+          "reference": null
         },
         "scale": {
           "scaleName": "mm",
-          "scaleDbId": "UO:0000016",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "seed",
@@ -1366,15 +3419,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "mm",
+        "unitDbId": "UO:0000016",
         "systemId": "PSI:BOXEED:SEED_WIDTH_MM",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "shoot.area.px",
-        "observationVariableName": "Shoot segmented area (px)",
+        "observationVariableName": "Shoot area (n_pixels_shoot)",
         "trait": {
           "traitName": "shoot area",
           "traitDbId": null,
@@ -1384,14 +3439,15 @@
           "attributeDbId": "PATO:0001323"
         },
         "method": {
-          "methodName": "Backlit RootCam imaging with segmentation and trait extraction",
-          "methodDbId": null
+          "methodName": "Backlit root architecture extraction",
+          "description": "Backlit transmission images from the HADES morphometric unit are segmented to delineate visible plant structures. The imaging station uses a 12.36 MP monochrome CMOS sensor and white-light transmission mode optimized for square Petri dishes. This variable records segmented shoot area in pixel units.",
+          "reference": null
         },
         "scale": {
           "scaleName": "px",
-          "scaleDbId": null,
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_day",
@@ -1401,15 +3457,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "px",
+        "unitDbId": null,
         "systemId": "HADES:SHOOT:AREA_PX",
-        "variableRole": "primary_trait"
+        "variableRole": "primary_trait",
+        "roiClass": null
       },
       {
         "observationVariableDbId": "vnir.emission_peak_wavelength.rhizoplane_425_600.nm",
-        "observationVariableName": "Peak emission wavelength in rhizoplane region (425-600 nm)",
+        "observationVariableName": "Peak emission wavelength (425–600nm) in rhizoplane region",
         "trait": {
           "traitName": "peri-root region fluorescence emission peak wavelength",
           "traitDbId": null,
@@ -1419,14 +3477,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR peak wavelength extraction",
+          "description": "Peak wavelength is derived from HADES VNIR hyperspectral fluorescence imaging acquired under 365 nm UV excitation. After mask registration between transmission outlines and the hyperspectral cube, the wavelength of maximal intensity is extracted within the 425–600 nm emission window for the specified ROI.",
+          "reference": null
         },
         "scale": {
           "scaleName": "nm",
-          "scaleDbId": "UO:0000018",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1436,15 +3495,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "nm",
+        "unitDbId": "UO:0000018",
         "systemId": "HADES:VNIR:EMISSION_PEAK_WAVELENGTH_RHIZOPLANE_425_600_NM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_peak_wavelength.root_425_600.nm",
-        "observationVariableName": "Peak emission wavelength in root region (425-600 nm)",
+        "observationVariableName": "Peak emission wavelength (425–600nm) in root region",
         "trait": {
           "traitName": "root system fluorescence emission peak wavelength",
           "traitDbId": null,
@@ -1454,14 +3515,15 @@
           "attributeDbId": null
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR peak wavelength extraction",
+          "description": "Peak wavelength is derived from HADES VNIR hyperspectral fluorescence imaging acquired under 365 nm UV excitation. After mask registration between transmission outlines and the hyperspectral cube, the wavelength of maximal intensity is extracted within the 425–600 nm emission window for the specified ROI.",
+          "reference": null
         },
         "scale": {
           "scaleName": "nm",
-          "scaleDbId": "UO:0000018",
           "dataType": "float",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1471,15 +3533,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "nm",
+        "unitDbId": "UO:0000018",
         "systemId": "HADES:VNIR:EMISSION_PEAK_WAVELENGTH_ROOT_425_600_NM",
-        "variableRole": "observed_variable"
+        "variableRole": "observed_variable",
+        "roiClass": "root_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_spectrum.rhizoplane_425_600.mean",
-        "observationVariableName": "VNIR emission spectrum in peri-root region, 425-600 nm (mean)",
+        "observationVariableName": "Emission spectrum mean in peri-root region (425-600 nm)",
         "trait": {
           "traitName": "peri-root region fluorescence emission spectrum",
           "traitDbId": null,
@@ -1489,14 +3553,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR ROI spectrum extraction",
+          "description": "HADES VNIR hyperspectral fluorescence imaging uses 365 nm UV excitation and a 350–900 nm spectral range, with white-light transmission imaging used to derive outline masks. Registered root or peri-root ROI masks are applied to the hyperspectral cube, and template rows expand over mean, summed, or standard-deviation spectra for the 425–600 nm emission window.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "array<float>",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1506,15 +3571,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:VNIR:EMISSION_SPECTRUM_RHIZOPLANE_425_600_MEAN",
-        "variableRole": "matrix_trait"
+        "variableRole": "matrix_trait",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_spectrum.rhizoplane_425_600.std",
-        "observationVariableName": "VNIR emission spectrum in peri-root region, 425-600 nm (standard deviation)",
+        "observationVariableName": "Emission spectrum standard deviation in peri-root region (425-600 nm)",
         "trait": {
           "traitName": "peri-root region fluorescence emission spectrum",
           "traitDbId": null,
@@ -1524,14 +3591,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR ROI spectrum extraction",
+          "description": "HADES VNIR hyperspectral fluorescence imaging uses 365 nm UV excitation and a 350–900 nm spectral range, with white-light transmission imaging used to derive outline masks. Registered root or peri-root ROI masks are applied to the hyperspectral cube, and template rows expand over mean, summed, or standard-deviation spectra for the 425–600 nm emission window.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "array<float>",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1541,15 +3609,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:VNIR:EMISSION_SPECTRUM_RHIZOPLANE_425_600_STD",
-        "variableRole": "matrix_trait"
+        "variableRole": "matrix_trait",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_spectrum.rhizoplane_425_600.sum",
-        "observationVariableName": "VNIR emission spectrum in peri-root region, 425-600 nm (sum)",
+        "observationVariableName": "Emission spectrum sum in peri-root region (425-600 nm)",
         "trait": {
           "traitName": "peri-root region fluorescence emission spectrum",
           "traitDbId": null,
@@ -1559,14 +3629,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR ROI spectrum extraction",
+          "description": "HADES VNIR hyperspectral fluorescence imaging uses 365 nm UV excitation and a 350–900 nm spectral range, with white-light transmission imaging used to derive outline masks. Registered root or peri-root ROI masks are applied to the hyperspectral cube, and template rows expand over mean, summed, or standard-deviation spectra for the 425–600 nm emission window.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "array<float>",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1576,15 +3647,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:VNIR:EMISSION_SPECTRUM_RHIZOPLANE_425_600_SUM",
-        "variableRole": "matrix_trait"
+        "variableRole": "matrix_trait",
+        "roiClass": "peri_root_dilated_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_spectrum.root_425_600.mean",
-        "observationVariableName": "VNIR emission spectrum in root region, 425-600 nm (mean)",
+        "observationVariableName": "Emission spectrum mean in root region (425-600 nm)",
         "trait": {
           "traitName": "root system fluorescence emission spectrum",
           "traitDbId": null,
@@ -1594,14 +3667,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR ROI spectrum extraction",
+          "description": "HADES VNIR hyperspectral fluorescence imaging uses 365 nm UV excitation and a 350–900 nm spectral range, with white-light transmission imaging used to derive outline masks. Registered root or peri-root ROI masks are applied to the hyperspectral cube, and template rows expand over mean, summed, or standard-deviation spectra for the 425–600 nm emission window.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "array<float>",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1611,15 +3685,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:VNIR:EMISSION_SPECTRUM_ROOT_425_600_MEAN",
-        "variableRole": "matrix_trait"
+        "variableRole": "matrix_trait",
+        "roiClass": "root_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_spectrum.root_425_600.std",
-        "observationVariableName": "VNIR emission spectrum in root region, 425-600 nm (standard deviation)",
+        "observationVariableName": "Emission spectrum standard deviation in root region (425-600 nm)",
         "trait": {
           "traitName": "root system fluorescence emission spectrum",
           "traitDbId": null,
@@ -1629,14 +3705,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR ROI spectrum extraction",
+          "description": "HADES VNIR hyperspectral fluorescence imaging uses 365 nm UV excitation and a 350–900 nm spectral range, with white-light transmission imaging used to derive outline masks. Registered root or peri-root ROI masks are applied to the hyperspectral cube, and template rows expand over mean, summed, or standard-deviation spectra for the 425–600 nm emission window.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "array<float>",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1646,15 +3723,17 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:VNIR:EMISSION_SPECTRUM_ROOT_425_600_STD",
-        "variableRole": "matrix_trait"
+        "variableRole": "matrix_trait",
+        "roiClass": "root_mask"
       },
       {
         "observationVariableDbId": "vnir.emission_spectrum.root_425_600.sum",
-        "observationVariableName": "VNIR emission spectrum in root region, 425-600 nm (sum)",
+        "observationVariableName": "Emission spectrum sum in root region (425-600 nm)",
         "trait": {
           "traitName": "root system fluorescence emission spectrum",
           "traitDbId": null,
@@ -1664,14 +3743,15 @@
           "attributeDbId": "PATO:0000049"
         },
         "method": {
-          "methodName": "VNIR hyperspectral fluorescence imaging (UV 365 nm excitation; 350-900 nm sensor range; 425-600 nm analysis window) with registered ROI masks",
-          "methodDbId": null
+          "methodName": "VNIR ROI spectrum extraction",
+          "description": "HADES VNIR hyperspectral fluorescence imaging uses 365 nm UV excitation and a 350–900 nm spectral range, with white-light transmission imaging used to derive outline masks. Registered root or peri-root ROI masks are applied to the hyperspectral cube, and template rows expand over mean, summed, or standard-deviation spectra for the 425–600 nm emission window.",
+          "reference": null
         },
         "scale": {
           "scaleName": "a.u.",
-          "scaleDbId": null,
           "dataType": "array<float>",
-          "validValues": null
+          "validValues": null,
+          "scaleClass": "Numerical"
         },
         "contextOfUse": [
           "plant_timepoint",
@@ -1681,11 +3761,13 @@
         "ontologyReference": {
           "documentationLinks": [],
           "ontologyName": "MIAPPE-aligned local registry",
-          "version": "1.1.0"
+          "version": "0.0.1"
         },
         "unit": "a.u.",
+        "unitDbId": null,
         "systemId": "HADES:VNIR:EMISSION_SPECTRUM_ROOT_425_600_SUM",
-        "variableRole": "matrix_trait"
+        "variableRole": "matrix_trait",
+        "roiClass": "root_mask"
       }
     ]
   }

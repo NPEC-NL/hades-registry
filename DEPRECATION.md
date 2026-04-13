@@ -21,4 +21,4 @@ Deletion is acceptable only for:
 
 ## Why this matters
 
-The public concrete registry is intended to support traceable MIAPPE / BrAPI / internal registry exports. Preserving old IDs keeps old analyses and archived releases interpretable.
+The public concrete registry is intended to support traceable MIAPPE / BrAPI / internal registry exports. Preserving old IDs keeps archived releases and analyses interpretable.

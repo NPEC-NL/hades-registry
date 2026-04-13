@@ -1,8 +1,8 @@
-registry_version: 1.2.1
-export_schema_version: 1.1.0
-release_date: '2026-04-06'
+registry_version: 0.0.1
+export_schema_version: 0.0.1
+release_date: '2026-04-13'
 source_file: variable_registry.source.csv
-source_commit: registry-v1.2.1-draft
+source_commit: registry-v0.0.1-draft
 release_status: draft
 public_release_ready: false
 generated_files:
@@ -11,12 +11,10 @@ generated_files:
   - exports/miappe_variables.json
   - exports/brapi_observation_variables.json
   - reports/validation_report.json
-  - checksums.sha256
 conditional_public_generated_files:
   - variable_registry.public.concrete.csv
   - exports/public_registry.json
 validation_flags:
-  fail_on_required_manual_for_draft_exports: false
   fail_on_any_public_manual_for_public_release: true
   require_concrete_ids_without_braces: true
   require_pixel_count_semantics_policy: true

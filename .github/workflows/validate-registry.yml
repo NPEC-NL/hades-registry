@@ -10,6 +10,7 @@ on:
       - 'exports/**'
       - 'reports/**'
       - 'scripts/**'
+      - 'release_manifest.yaml'
   pull_request:
     paths:
       - 'Makefile'
@@ -19,6 +20,7 @@ on:
       - 'exports/**'
       - 'reports/**'
       - 'scripts/**'
+      - 'release_manifest.yaml'
   workflow_dispatch:
 
 jobs:
@@ -45,7 +47,7 @@ jobs:
       - name: Ensure generated artifacts are clean
         run: make diff-clean
 
-      - name: Run strict public validation when manifest declares public
+      - name: Run strict public validation when manifest declares public-ready
         shell: bash
         run: |
           if grep -Eq '^public_release_ready:[[:space:]]*true$$' release_manifest.yaml; then
