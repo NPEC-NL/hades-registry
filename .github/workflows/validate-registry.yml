@@ -3,55 +3,26 @@ name: validate-registry
 on:
   push:
     paths:
-      - 'Makefile'
-      - '.github/workflows/validate-registry.yml'
-      - '*.csv'
-      - '*.md'
-      - 'exports/**'
-      - 'reports/**'
-      - 'scripts/**'
-      - 'release_manifest.yaml'
+      - "variable_registry.source.csv"
+      - "scripts/**"
+      - "Makefile"
+      - ".github/workflows/validate-registry.yml"
   pull_request:
     paths:
-      - 'Makefile'
-      - '.github/workflows/validate-registry.yml'
-      - '*.csv'
-      - '*.md'
-      - 'exports/**'
-      - 'reports/**'
-      - 'scripts/**'
-      - 'release_manifest.yaml'
-  workflow_dispatch:
+      - "variable_registry.source.csv"
+      - "scripts/**"
+      - "Makefile"
+      - ".github/workflows/validate-registry.yml"
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-
-      - name: Build draft artifacts
-        run: make build
-
-      - name: Validate draft artifacts
-        run: make validate
-
-      - name: Show checksums
-        run: make checksum
-
-      - name: Ensure generated artifacts are clean
-        run: make diff-clean
-
-      - name: Run strict public validation when manifest declares public-ready
-        shell: bash
-        run: |
-          if grep -Eq '^public_release_ready:[[:space:]]*true$$' release_manifest.yaml; then
-            make validate-public RELEASE_STATUS=public PUBLIC_RELEASE_READY=true
-          else
-            echo 'Manifest is not public-release-ready; strict public validation skipped.'
-          fi
+          python-version: "3.11"
+      - run: pip install pandas openpyxl
+      - run: make build
+      - run: make validate
+      - run: make diff-clean

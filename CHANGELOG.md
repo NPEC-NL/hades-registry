@@ -1,23 +1,23 @@
-# CHANGELOG
+# Changelog
 
-## 0.0.1 - governed public-release draft baseline - 2026-04-13
+## 0.0.4 - draft
 
-This release establishes the first governed public-draft baseline of the HADES variable registry.
+Small patch release after manual audit.
 
-### Added
-- Introduced the HADES-scoped governed source registry as the authoritative hand-edited CSV.
-- Added generated concrete and JSON export artifacts.
-- Added validation, build, checksum, and release helper scripts.
-- Added governance documentation for versioning, naming, deprecation, manual review, and public release policy.
+### Source-table fixes
 
-### Changed
-- Reset repository versioning to `0.0.1` as the beginning of the governed public-draft line.
-- Refactored the source schema toward MIAPPE-style canonical observed-variable fields.
-- Removed redundant source fields such as duplicated ontology blocks, `label`, `methodAccNumber`, and redundant hand-maintained scale duplication.
-- Kept `scaleName` and `scaleClass` sparse in the source CSV, with generated artifacts allowed to materialize fallback values.
-- Removed `export_requirement` and based public selection on lifecycle status instead.
+- added `{light_source}` to FluorCam `parent_variable_id` and `system_id`
+- normalized UTF-8 / escaped text forms such as `Seed shape - SSE`, `Seed shape - L/S ratio`, `array<float>`, `matrix<float>`, `349.9nm-899.1nm`, and `&gt;=`
+- set `core_nm`, `in_bundle`, and `is_pattern` explicitly for `vnir.reflectance` rows
+- set all `psi.vnir` rows to `acquisition_modality = psi_vendor_vnir`
+- simplified `psi.vnir` trait entities to `plant` with `PO:0000003`
+- updated `seed.length_area_ratio` to use `ratio (shape elongation)` with `PATO:0001470`
+- shortened FluorCam filter notes
+- removed `artifact_class`
+- removed remaining manual placeholders and the `manual_class` column
 
-### Status
-- `release_status = draft`
-- `public_release_ready = false`
-- strict public release is intentionally not yet allowed
+### Generator / export changes
+
+- removed artifact-class handling from generated exports
+- removed manual-placeholder-specific validation logic
+- regenerated concrete and bridge export artifacts under version `0.0.4`

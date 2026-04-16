@@ -1,69 +1,38 @@
-# Canonical Naming Rules
+# Naming Rules
 
-## General principles
+## Canonical variable IDs
 
-- Use lowercase dot-separated canonical IDs.
-- Keep each axis explicit in the ID.
-- Keep the family and measured concept near the front.
-- Reserve braces only for authoring-layer template rows.
-- Never publish concrete IDs containing braces.
+Concrete variables use lowercase dot-separated identifiers except for preserved vendor filter or band tokens such as `F635` or `A570`.
 
-## Concrete variable IDs
+## Template rows
 
-Concrete IDs are fully expanded and stable.
+Template rows may use placeholders such as:
 
-Examples:
-- `root.primary.length.px`
-- `fluor.mCherry.main_root.mean`
-- `vnir.emission_peak_wavelength.root_425_600.nm`
-- `psi.vnir.band.A570.avg`
+- `{light_source}`
+- `{filter}`
+- `{stat}`
+- `{band_nm}`
 
-## Template variable IDs
+These placeholders are authoring-layer only and must not appear in concrete public identifiers.
 
-Template IDs are allowed only in `variable_registry.source.csv`.
+## FC naming
 
-Examples:
-- `fluor.mCherry.main_root.{stat}`
-- `vnir.emission_spectrum.root_425_600.{stat}`
-- `psi.vnir.band.A{band_nm}.{stat}`
+FluorCam ROI summaries use:
 
-## Reserved suffix rules
+- `fluor.{light_source}.{filter}.{roi}.{stat}`
+- `fluor.{light_source}.{filter}.{roi}.pixel_count.px`
 
-### Statistic suffixes
-Use:
-- `.mean`
-- `.sum`
-- `.std`
-- `.avg`
-- `.median`
-- `.min`
-- `.max`
+## VNIR naming
 
-### Scalar unit suffixes
-Use:
-- `.nm` for wavelength-valued scalars
-- `.deg` for angle-valued scalars
-- `.px` only where the implementation-level unit really is pixels
+ROI-level spectral summaries use `.vector`, for example:
 
-### Pixel count rows
-Use `.pixel_count.px` for count-of-pixels variables.
-These rows must remain semantically consistent:
-- `unit = px`
-- `traitCharacteristic = count`
-- `variable_role = analysis_derived`
+- `vnir.emission_spectrum.root_350_900.mean.vector`
+- `vnir.reflectance_spectrum.peri_root_350_900.std.vector`
 
-### Structured outputs
-Use:
-- `.vector` for wide-form vectors
-- `.series` for ordered protocol/time/frame series
+Per-pixel spectra use `.matrix`, for example:
 
-## Public vs authoring-only naming
+- `vnir.pixel_spectra.root_350_900.matrix`
 
-Public and stable:
-- concrete IDs in `variable_registry.public.concrete.csv`
-- concrete IDs in `public_registry.json`
+## Public stability
 
-Authoring-only:
-- brace patterns such as `{stat}` and `{band_nm}`
-- template expansion instructions
-- template-only bookkeeping metadata
+Concrete public identifiers should not be renamed casually. If change is unavoidable, use `record_status`, `deprecated_in_version`, and `replaced_by_variable_id` to preserve traceability.

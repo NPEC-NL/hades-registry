@@ -2,11 +2,9 @@
 
 ## Purpose
 
-`[MANUAL]` marks fields that still need curator review.
 
 ## Allowed locations
 
-`[MANUAL]` is allowed in the source CSV.
 It must not appear in a strict public release artifact.
 
 ## Current manual review classes
