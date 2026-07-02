@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env python3
 from __future__ import annotations
 import argparse, csv, hashlib, itertools, json, re
@@ -6,8 +5,8 @@ from copy import deepcopy
 from datetime import date
 from pathlib import Path
 
-DEFAULT_REGISTRY_VERSION = "0.0.4"
-DEFAULT_EXPORT_SCHEMA_VERSION = "0.0.4"
+DEFAULT_REGISTRY_VERSION = "0.0.5"
+DEFAULT_EXPORT_SCHEMA_VERSION = "0.0.5"
 PUBLIC_RECORD_STATUS_EXCLUDE = {"draft", "internal_only"}
 FILTER_SIGNAL = {
     "F483": "coumarin_related_fluorescence",
@@ -343,8 +342,17 @@ def write_manifest(path, registry_version, export_schema_version, release_status
     ])
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-def write_checksums(path, root, files):
-    lines = [f"{sha256(root / rel)}  {rel}" for rel in files]
+def write_checksums(path, artifacts):
+    target = path.resolve()
+    lines = []
+    for rel, file_path in artifacts:
+        file_path = Path(file_path)
+        # A checksum file cannot include a stable checksum of itself while it is
+        # being written.  Keep it listed in release_manifest.yaml, but omit it
+        # from checksums.sha256.
+        if file_path.resolve() == target:
+            continue
+        lines.append(f"{sha256(file_path)}  {rel}")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 def main():
@@ -355,6 +363,21 @@ def main():
     exports_dir = Path(args.exports_dir)
     manifest_path = Path(args.manifest)
     checksums_path = Path(args.checksums)
+
+    def _logical_name(path: Path, default_rel: str) -> str:
+        """Return a stable manifest/checksum name for a generated artifact.
+
+        Clean validation builds often write to a temporary directory, but the
+        release manifest should still describe the canonical package layout.
+        If a caller intentionally uses a non-default basename, preserve it.
+        """
+        default_path = Path(default_rel)
+        if path.name == default_path.name:
+            return default_rel
+        try:
+            return str(path.resolve().relative_to(root.resolve()))
+        except ValueError:
+            return str(path)
 
     source_rows = read_csv(source_path)
     concrete_rows, concrete_fields = expand_source_rows(source_rows)
@@ -368,31 +391,40 @@ def main():
         "source_commit": args.source_commit or f"registry-v{args.registry_version}-{args.release_status}",
         "public_release_ready": args.public_release_ready == "true",
     }
-    write_json(exports_dir / "internal_registry.json", {"metadata": meta | {"artifact":"internal_registry.json"}, "variables": to_internal_json_rows(concrete_rows)})
-    write_json(exports_dir / "miappe_variables.json", {"metadata": meta | {"artifact":"miappe_variables.json"}, "variables": to_miappe(concrete_rows)})
-    write_json(exports_dir / "brapi_observation_variables.json", {"metadata": meta | {"artifact":"brapi_observation_variables.json"}, "variables": to_brapi(concrete_rows, args.export_schema_version)})
+    internal_json_path = exports_dir / "internal_registry.json"
+    miappe_json_path = exports_dir / "miappe_variables.json"
+    brapi_json_path = exports_dir / "brapi_observation_variables.json"
+    write_json(internal_json_path, {"metadata": meta | {"artifact":"internal_registry.json"}, "variables": to_internal_json_rows(concrete_rows)})
+    write_json(miappe_json_path, {"metadata": meta | {"artifact":"miappe_variables.json"}, "variables": to_miappe(concrete_rows)})
+    write_json(brapi_json_path, {"metadata": meta | {"artifact":"brapi_observation_variables.json"}, "variables": to_brapi(concrete_rows, args.export_schema_version)})
 
-    generated_files = [
-        str(concrete_path),
-        "exports/internal_registry.json",
-        "exports/miappe_variables.json",
-        "exports/brapi_observation_variables.json",
-        str(manifest_path),
-        str(checksums_path),
+    generated_artifacts = [
+        (_logical_name(concrete_path, "variable_registry.concrete.csv"), concrete_path),
+        (_logical_name(internal_json_path, "exports/internal_registry.json"), internal_json_path),
+        (_logical_name(miappe_json_path, "exports/miappe_variables.json"), miappe_json_path),
+        (_logical_name(brapi_json_path, "exports/brapi_observation_variables.json"), brapi_json_path),
+        (_logical_name(manifest_path, "release_manifest.yaml"), manifest_path),
+        (_logical_name(checksums_path, "checksums.sha256"), checksums_path),
     ]
 
+    public_concrete_path = concrete_path.parent / "variable_registry.public.concrete.csv"
+    public_registry_path = exports_dir / "public_registry.json"
     if args.release_status == "public":
         public_list = public_rows(concrete_rows)
-        write_csv(root / "variable_registry.public.concrete.csv", to_public_csv_rows(public_list), PUBLIC_CSV_COLUMNS)
-        write_json(exports_dir / "public_registry.json", to_public_registry(public_list, args.registry_version, args.export_schema_version))
-        generated_files.extend(["variable_registry.public.concrete.csv", "exports/public_registry.json"])
+        write_csv(public_concrete_path, to_public_csv_rows(public_list), PUBLIC_CSV_COLUMNS)
+        write_json(public_registry_path, to_public_registry(public_list, args.registry_version, args.export_schema_version))
+        generated_artifacts.extend([
+            (_logical_name(public_concrete_path, "variable_registry.public.concrete.csv"), public_concrete_path),
+            (_logical_name(public_registry_path, "exports/public_registry.json"), public_registry_path),
+        ])
     else:
-        for p in [root / "variable_registry.public.concrete.csv", exports_dir / "public_registry.json"]:
+        for p in [public_concrete_path, public_registry_path]:
             if p.exists():
                 p.unlink()
 
+    generated_files = [rel for rel, _ in generated_artifacts]
     write_manifest(manifest_path, args.registry_version, args.export_schema_version, args.release_status, generated_files, args.source_commit or f"registry-v{args.registry_version}-{args.release_status}", args.public_release_ready == "true")
-    write_checksums(checksums_path, root, generated_files)
+    write_checksums(checksums_path, generated_artifacts)
 
 if __name__ == "__main__":
     main()

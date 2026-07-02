@@ -1,7 +1,7 @@
 PYTHON ?= python3
 RELEASE_STATUS ?= draft
-REGISTRY_VERSION ?= 0.0.4
-EXPORT_SCHEMA_VERSION ?= 0.0.4
+REGISTRY_VERSION ?= 0.0.5
+EXPORT_SCHEMA_VERSION ?= 0.0.5
 
 SOURCE_CSV := variable_registry.source.csv
 CONCRETE_CSV := variable_registry.concrete.csv

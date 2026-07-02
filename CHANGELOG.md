@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.0.5 - draft
+
+Maintenance release for the HADES Data Descriptor package.
+
+### Registry curation
+
+- filled missing `scaleName` values for quantitative source variables
+- normalized blank `scaleClass` values to `Numerical` for public quantitative variables
+
+### Generator / export changes
+
+- bumped default registry and export schema versions to `0.0.5`
+- fixed clean public-release checksum generation by listing `checksums.sha256` in the release manifest while excluding it from self-hashing
+
 ## 0.0.4 - draft
 
 Small patch release after manual audit.
