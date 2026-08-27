@@ -1,10 +1,11 @@
-registry_version: 0.0.5
-export_schema_version: 0.0.5
-release_date: '2026-07-02'
+registry_version: 0.1.0
+export_schema_version: 0.1.0
+release_date: '2026-08-27'
 source_file: variable_registry.source.csv
-source_commit: registry-v0.0.5-draft
+source_commit: registry-v0.1.0-frozen-draft
 release_status: draft
 public_release_ready: false
+identifier_policy: frozen_draft_baseline_from_0.1.0
 generated_files:
   - variable_registry.concrete.csv
   - exports/internal_registry.json
@@ -18,3 +19,4 @@ conditional_public_generated_files:
 validation_flags:
   require_concrete_ids_without_braces: true
   require_public_artifacts_only_when_release_status_public: true
+  preserve_source_family_order: true

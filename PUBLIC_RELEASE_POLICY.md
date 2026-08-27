@@ -1,10 +1,19 @@
 # Public Release Policy
 
-A strict public release is only allowed when:
+The repository is structurally capable of producing public artifacts, but version 0.1.0 is currently a **frozen draft**, not a public release.
 
-- `release_status: public`
-- `public_release_ready: true`
+Normal draft state:
 
-Public artifacts are generated only for `RELEASE_STATUS=public`.
+- `release_status: draft`
+- `public_release_ready: false`
+- no `variable_registry.public.concrete.csv`
+- no `exports/public_registry.json`
 
-Public artifacts exclude source-only governance fields such as pattern metadata, row-level authoring helpers, and internal curation notes.
+A formal public build requires both:
+
+- `RELEASE_STATUS=public`
+- `PUBLIC_RELEASE_READY=true`
+
+Public artifacts omit authoring-only pattern/governance fields and contain only concrete variable identifiers. A public build must pass `make validate-public` before release.
+
+Once a concrete identifier is included in a public release, it is treated as stable and can only be replaced through the deprecation/supersession policy.

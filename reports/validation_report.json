@@ -1,5 +1,8 @@
 {
+  "registry_version": "0.1.0",
   "release_status": "draft",
+  "source_rows": 42,
+  "concrete_rows": 261,
   "errors": [],
   "warnings": []
 }

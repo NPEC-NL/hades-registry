@@ -6,12 +6,14 @@ on:
       - "variable_registry.source.csv"
       - "scripts/**"
       - "Makefile"
+      - "*.md"
       - ".github/workflows/validate-registry.yml"
   pull_request:
     paths:
       - "variable_registry.source.csv"
       - "scripts/**"
       - "Makefile"
+      - "*.md"
       - ".github/workflows/validate-registry.yml"
 
 jobs:
@@ -22,7 +24,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - run: pip install pandas openpyxl
       - run: make build
       - run: make validate
       - run: make diff-clean

@@ -1,24 +1,15 @@
-# Deprecation Policy
+# Deprecation and Supersession
 
-## Core rule
+Do not delete a previously distributed concrete variable merely because a better name or mapping is found.
 
-Do not delete released public variables just because they were superseded.
+For a variable that remains interpretable but should no longer be used, set:
 
-## When a released variable must change
+- `record_status=deprecated`
+- `deprecated_in_version=<version>`
+- `replaced_by_variable_id=<successor>` when applicable
 
-1. keep the old row;
-2. set `record_status` to `deprecated` or `superseded`;
-3. fill `deprecated_in_version`;
-4. fill `replaced_by_variable_id` where a successor exists;
-5. explain the change in `CHANGELOG.md`.
+For a variable whose role is explicitly taken over by another canonical variable, use `record_status=superseded` and record the successor.
 
-## When deletion is acceptable
+A replacement should normally be a new row. Do not change the old row's identifier and pretend it has always had the new meaning.
 
-Deletion is acceptable only for:
-- unreleased draft rows
-- rows introduced by mistake before public release
-- generated files that can be rebuilt from source
-
-## Why this matters
-
-The public concrete registry is intended to support traceable MIAPPE / BrAPI / internal registry exports. Preserving old IDs keeps archived releases and analyses interpretable.
+Version 0.1.0 is the first frozen draft baseline. Silent ID or semantic rewrites after this point should be avoided; public releases make this stability rule binding for downstream users.
