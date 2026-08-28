@@ -11,8 +11,8 @@ from copy import deepcopy
 from datetime import date
 from pathlib import Path
 
-DEFAULT_REGISTRY_VERSION = "0.1.0"
-DEFAULT_EXPORT_SCHEMA_VERSION = "0.1.0"
+DEFAULT_REGISTRY_VERSION = "1.0.0"
+DEFAULT_EXPORT_SCHEMA_VERSION = "1.0.0"
 PUBLIC_RECORD_STATUS_EXCLUDE = {"draft", "internal_only"}
 
 # Filter availability follows the two HADES RootCam/FluorCam units.  The unit is
@@ -396,7 +396,7 @@ def write_manifest(
         f"source_commit: {source_commit}",
         f"release_status: {release_status}",
         f"public_release_ready: {str(public_release_ready).lower()}",
-        "identifier_policy: frozen_draft_baseline_from_0.1.0",
+        "identifier_policy: public_stable_from_1.0.0",
         "generated_files:",
     ]
     lines.extend(f"  - {item}" for item in generated_files)

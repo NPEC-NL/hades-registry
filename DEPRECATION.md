@@ -12,4 +12,4 @@ For a variable whose role is explicitly taken over by another canonical variable
 
 A replacement should normally be a new row. Do not change the old row's identifier and pretend it has always had the new meaning.
 
-Version 0.1.0 is the first frozen draft baseline. Silent ID or semantic rewrites after this point should be avoided; public releases make this stability rule binding for downstream users.
+Version 1.0.0 is the first public compatibility baseline. Silent ID or semantic rewrites are not allowed after this release; use deprecation or supersession instead.

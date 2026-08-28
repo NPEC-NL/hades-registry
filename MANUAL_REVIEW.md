@@ -1,6 +1,6 @@
 # Curation Review Policy
 
-The source registry is curated by maintainers before a release candidate is prepared.
+The source registry is curated by maintainers before a public release is published.
 
 Review should focus on:
 
@@ -13,4 +13,4 @@ Review should focus on:
 
 Unknown ontology accessions may be left empty. Do not invent accessions merely to fill a field.
 
-The validator checks structural consistency, but domain review remains necessary before a formal public release.
+The validator checks structural consistency, but domain review remains necessary before each public release.

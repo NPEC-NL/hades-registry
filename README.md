@@ -21,18 +21,18 @@ This repository is **not** a universal plant phenotyping ontology or a cross-pla
 
 Other NPEC platforms can share sensor families, vendor software, or high-level concepts with HADES without sharing the same variable semantics. For example, another PSI platform can use FluorCam or VNIR hardware while observing a different biological compartment, growth system, or imaging geometry. Cross-platform work should therefore maintain platform-specific registries and connect comparable concepts through explicit crosswalks rather than collapsing distinct platform outputs into one flat registry.
 
-## 0.1.0 status: frozen draft baseline
+## 1.0.0 status: first public release
 
-Version **0.1.0** is the first frozen draft baseline of the registry schema and canonical naming grammar. Earlier `0.0.x` packages were development snapshots and should not be treated as stable interfaces.
+Version **1.0.0** is the first public, release-ready version of the HADES variable registry. Earlier `0.x` packages were pre-release development and frozen-draft snapshots and are not part of the public compatibility promise.
 
-The repository is still a draft for public release:
+Release metadata is:
 
-- `registry_version: 0.1.0`
-- `export_schema_version: 0.1.0`
-- `release_status: draft`
-- `public_release_ready: false`
+- `registry_version: 1.0.0`
+- `export_schema_version: 1.0.0`
+- `release_status: public`
+- `public_release_ready: true`
 
-From 0.1.0 onward, maintainers should avoid structural or semantic changes to released variable definitions. Corrections that would change a concrete identifier or its meaning should use deprecation/supersession rather than silent replacement. The strongest identifier-freezing promise begins when a version is formally released as public; see `VERSIONING.md` and `DEPRECATION.md`.
+Concrete `variableId` values included in 1.0.0 are treated as stable public identifiers. Later semantic replacements must use the deprecation/supersession mechanism rather than silently changing an existing public identifier.
 
 ## Authoritative source and generated artifacts
 
@@ -60,7 +60,7 @@ Do not hand-edit:
 - `checksums.sha256`
 - `reports/validation_report.json`
 
-When `RELEASE_STATUS=public`, the build additionally emits:
+The 1.0.0 public build additionally emits:
 
 - `variable_registry.public.concrete.csv`
 - `exports/public_registry.json`
@@ -148,7 +148,7 @@ Per-pixel VNIR2 spectra plus spatial coordinates are matrix-like artifacts and u
 - `vnir.emission_pixel_spectra.root_350_900.matrix`
 - `vnir.emission_pixel_spectra.peri_root_350_900.matrix`
 
-Per-pixel exports may be stored as CSV or NPZ.
+Per-pixel matrix exports are stored as **Parquet by default**; CSV is available as an optional interchange format. NPZ is no longer part of the registry export contract.
 
 The camera's exported spectral axis is approximately **349.9nm-899.1nm**. Narrower ranges such as 425-600 nm are downstream analysis windows used for particular biological questions and are not the canonical raw-output axis.
 
@@ -175,6 +175,16 @@ The registry intentionally represents the seven raw measurement columns present 
 These map to the seven `seed.*` source rows in the same order. Each raw row represents one imaged seed side (`Seed Side` 0 or 1). Values such as L/S ratio, roundness, experiment-specific selection thresholds, or averages across the two orientations are downstream calculations and are not separate canonical raw-output variables unless a future source export emits them directly.
 
 The Boxeed vendor does not disclose the exact image-segmentation, ellipse-fit, or calibration algorithms, so the registry does not invent implementation details that are not documented.
+
+## Implementation and research resources
+
+Stable public implementation and technical-resource entry points used by the registry are:
+
+- HADES fluorescence/RootCam analysis: https://github.com/valerian-meline/HADES_FC
+- HADES hyperspectral analysis: https://github.com/valerian-meline/HADES_HSI
+- HADES research resources: https://npec-nl.github.io/hades-research-resources
+
+The research-resources page is the stable landing page for the HADES method materials while the method manuscript remains under review. Camera technical specifications and FluorCam light-calibration resources can be linked there without changing registry method references.
 
 ## MIAPPE and BrAPI bridge exports
 
@@ -212,7 +222,7 @@ make diff-clean
 
 Do not manually patch the concrete CSV, JSON exports, manifest, or checksums.
 
-Use `make validate-public` only when testing the strict public-release path. It builds and validates in a temporary directory and must not dirty the normal draft working tree.
+Use `make validate-public` to run the strict public-release gate in a temporary directory. It must not dirty the normal working tree.
 
 ## References
 

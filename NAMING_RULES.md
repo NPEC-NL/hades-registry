@@ -8,7 +8,7 @@
 
 ## Authoring placeholders
 
-The 0.1.0 source grammar permits:
+The 1.0.0 source grammar permits:
 
 - `{filter}` for RootCam/FluorCam emission filters
 - `{stat}` for a finite summary-statistic axis
@@ -62,7 +62,7 @@ Per-pixel VNIR2 fluorescence spectra:
 - `vnir.emission_pixel_spectra.root_350_900.matrix`
 - `vnir.emission_pixel_spectra.peri_root_350_900.matrix`
 
-Use `.vector` for one spectrum per ROI and `.matrix` for a variable-cardinality collection of pixel spectra with spatial coordinates.
+Use `.vector` for one spectrum per ROI and `.matrix` for a variable-cardinality collection of pixel spectra with spatial coordinates. `.matrix` describes logical shape, not file extension; HADES 1.0.0 stores large per-pixel matrix exports as Parquet by default, with CSV optional.
 
 ## PSI vendor patterns
 
@@ -74,4 +74,4 @@ The generator materializes concrete registry IDs while preserving the vendor fam
 
 ## Stability
 
-0.1.0 is the first frozen draft naming baseline. Future corrections should avoid silently renaming existing concrete identifiers. Once an identifier has appeared in a public release, replacement requires deprecation/supersession metadata.
+1.0.0 is the first public naming baseline. Concrete identifiers distributed in this release are stable; replacement requires deprecation/supersession metadata.

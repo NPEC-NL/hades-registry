@@ -1,6 +1,6 @@
 {
-  "registry_version": "0.1.0",
-  "release_status": "draft",
+  "registry_version": "1.0.0",
+  "release_status": "public",
   "source_rows": 42,
   "concrete_rows": 261,
   "errors": [],

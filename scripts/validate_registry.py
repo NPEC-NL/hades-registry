@@ -41,7 +41,10 @@ REQUIRED_PUBLIC_CSV_COLUMNS = [
 ]
 
 PUBLIC_RECORD_STATUS_EXCLUDE = {"draft", "internal_only"}
-EXPECTED_VERSION = "0.1.0"
+EXPECTED_VERSION = "1.0.0"
+HADES_FC_URL = "https://github.com/valerian-meline/HADES_FC"
+HADES_HSI_URL = "https://github.com/valerian-meline/HADES_HSI"
+HADES_RESOURCES_URL = "https://npec-nl.github.io/hades-research-resources"
 
 
 def parse_args() -> argparse.Namespace:
@@ -142,6 +145,19 @@ def validate_source(rows: list[dict[str, str]], fields: list[str], errors: list[
             errors.append(f"Obsolete VNIR reflectance naming remains at source row {row_number}: {variable_id}")
         if "vnir.pixel_spectra." in all_text:
             errors.append(f"Ambiguous generic VNIR pixel-spectra naming remains at source row {row_number}: {variable_id}")
+        if ".npz" in all_text.lower() or " npz" in all_text.lower():
+            errors.append(f"Obsolete NPZ storage reference remains at source row {row_number}: {variable_id}")
+
+        if variable_id.startswith(("roi.", "fluor.")) and HADES_FC_URL not in row.get("methodRef", ""):
+            errors.append(f"FC/ROI methodRef must include the public HADES_FC repository: {variable_id}")
+        if variable_id.startswith("vnir.") and HADES_HSI_URL not in row.get("methodRef", ""):
+            errors.append(f"VNIR methodRef must include the public HADES_HSI repository: {variable_id}")
+        if variable_id.startswith(("roi.", "fluor.", "vnir.")) and HADES_RESOURCES_URL not in row.get("methodRef", ""):
+            errors.append(f"HADES-native imaging methodRef must include the stable research-resources page: {variable_id}")
+        if variable_id.startswith("vnir.emission_pixel_spectra."):
+            hint = row.get("source_table_hint", "").lower()
+            if ".parquet" not in hint or ".csv" not in hint:
+                errors.append(f"VNIR pixel spectra must document Parquet default and optional CSV export: {variable_id}")
 
         if row.get("registry_layer") == "canonical_concrete" and ("{" in variable_id or "}" in variable_id):
             errors.append(f"Concrete source row contains placeholder at row {row_number}: {variable_id}")
@@ -204,7 +220,7 @@ def validate_source(rows: list[dict[str, str]], fields: list[str], errors: list[
     }
     missing_ids = sorted(required_source_ids - seen_ids)
     if missing_ids:
-        errors.append("Required 0.1.0 source rows missing: " + ", ".join(missing_ids))
+        errors.append("Required 1.0.0 source rows missing: " + ", ".join(missing_ids))
 
     seed_ids = [row.get("variableId", "") for row in rows if row.get("variableId", "").startswith("seed.")]
     expected_seed_ids = [
@@ -240,6 +256,8 @@ def validate_concrete(rows: list[dict[str, str]], errors: list[str]) -> None:
             errors.append(f"Obsolete VNIR reflectance naming remains in concrete: {variable_id}")
         if variable_id.startswith("fluor.") and ".pixel_count.px" in variable_id:
             errors.append(f"Filter-specific FC pixel count remains in concrete registry: {variable_id}")
+        if ".npz" in all_text.lower() or " npz" in all_text.lower():
+            errors.append(f"Obsolete NPZ storage reference remains in concrete registry: {variable_id}")
 
         source_row_number = int(row.get("source_row_number") or 0)
         if source_row_number and source_row_number < previous_source_row:
@@ -312,6 +330,11 @@ def main() -> None:
             errors.append(f"Manifest export_schema_version is not {EXPECTED_VERSION}.")
         if f"release_status: {args.release_status}" not in manifest:
             warnings.append("Manifest release_status does not match validation mode.")
+        if args.release_status == "public":
+            if "public_release_ready: true" not in manifest:
+                errors.append("Public release manifest must set public_release_ready: true.")
+            if "identifier_policy: public_stable_from_1.0.0" not in manifest:
+                errors.append("Public release manifest must declare the 1.0.0 public identifier-stability policy.")
 
     report = {
         "registry_version": EXPECTED_VERSION,

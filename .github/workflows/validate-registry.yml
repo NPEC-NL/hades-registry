@@ -27,3 +27,4 @@ jobs:
       - run: make build
       - run: make validate
       - run: make diff-clean
+      - run: make validate-public

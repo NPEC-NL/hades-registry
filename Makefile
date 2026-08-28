@@ -1,7 +1,7 @@
 PYTHON ?= python3
-RELEASE_STATUS ?= draft
-REGISTRY_VERSION ?= 0.1.0
-EXPORT_SCHEMA_VERSION ?= 0.1.0
+RELEASE_STATUS ?= public
+REGISTRY_VERSION ?= 1.0.0
+EXPORT_SCHEMA_VERSION ?= 1.0.0
 
 SOURCE_CSV := variable_registry.source.csv
 CONCRETE_CSV := variable_registry.concrete.csv
@@ -11,8 +11,8 @@ PUBLIC_JSON := $(EXPORTS_DIR)/public_registry.json
 REPORT_PATH := reports/validation_report.json
 MANIFEST_PATH := release_manifest.yaml
 CHECKSUMS_PATH := checksums.sha256
-SOURCE_COMMIT ?= registry-v$(REGISTRY_VERSION)-frozen-draft
-PUBLIC_RELEASE_READY ?= false
+SOURCE_COMMIT ?= registry-v$(REGISTRY_VERSION)
+PUBLIC_RELEASE_READY ?= true
 
 .PHONY: build validate validate-public checksum diff-clean release clean-public
 
@@ -59,7 +59,7 @@ validate-public:
 	  --registry-version $(REGISTRY_VERSION) \
 	  --export-schema-version $(EXPORT_SCHEMA_VERSION) \
 	  --release-status public \
-	  --source-commit registry-v$(REGISTRY_VERSION)-public-candidate \
+	  --source-commit registry-v$(REGISTRY_VERSION) \
 	  --public-release-ready true \
 	  --strict-public; \
 	$(PYTHON) scripts/validate_registry.py \

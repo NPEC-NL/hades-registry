@@ -1,11 +1,11 @@
-registry_version: 0.1.0
-export_schema_version: 0.1.0
-release_date: '2026-08-27'
+registry_version: 1.0.0
+export_schema_version: 1.0.0
+release_date: '2026-08-28'
 source_file: variable_registry.source.csv
-source_commit: registry-v0.1.0-frozen-draft
-release_status: draft
-public_release_ready: false
-identifier_policy: frozen_draft_baseline_from_0.1.0
+source_commit: registry-v1.0.0
+release_status: public
+public_release_ready: true
+identifier_policy: public_stable_from_1.0.0
 generated_files:
   - variable_registry.concrete.csv
   - exports/internal_registry.json
@@ -13,6 +13,8 @@ generated_files:
   - exports/brapi_observation_variables.json
   - release_manifest.yaml
   - checksums.sha256
+  - variable_registry.public.concrete.csv
+  - exports/public_registry.json
 conditional_public_generated_files:
   - variable_registry.public.concrete.csv
   - exports/public_registry.json
